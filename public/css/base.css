@@ -1,0 +1,28 @@
+/* 样式重置 */
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{
+    margin:0;
+    padding:0;
+}
+h1, h2, h3, h4, h5, h6, pre,caption,  em, th{
+    font-weight: 400;
+    font-style: normal;
+}
+a{text-decoration: none}
+li{list-style: none;}
+img{vertical-align: middle;border:0}
+table{border-collapse: collapse;}
+p{word-wrap: break-word;}/* 允许长单词换行到下一行 */
+*{
+    box-sizing:border-box;
+}
+body{
+    background: #F4F4F4;
+    font-family:Helvetica,Tahoma,Arial,"PingFang SC","Hiragino Sans GB","Heiti SC",STXihei,"Microsoft YaHei",SimHei,"WenQuanYi Micro Hei";
+}
+/*清除浮动对父元素带来的影响*/
+.clearfloat:after{
+    content: "";
+    display: block;
+    clear:both;
+    overflow: hidden;
+}
