@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/shopcart.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header_box">
+            <div>
+                <a href="" class="logo_link">
+                    <img class="logo" src="//127.0.0.1:9000/img/logo.png" alt="">
+                </a>
+            </div>
+            <ul class="nav">
+                <li class="nav_item active">购物车</li>
+                <li class="nav_item">确认订单</li>
+                <li class="nav_item">在线支付</li>
+                <li class="nav_item">完成</li>
+            </ul>
+            <ul class="ord_log_reg">
+                <li><a href="" class="olr_link">我的订单</a></li>
+                <li><a href="" class="olr_link">登录</a></li>
+                <li><a href="" class="olr_link">注册</a></li>
+            </ul>
+        </div>
+    </header>
+    <section class="cart">
+        <div class="log_tip">
+            <i class="tip_icon">i</i>
+            <span> 您还没有登录！登录后可显示您账号中已加入的商品哦~</span>
+            <a href="" class="tip_btn">去登录</a>
+            <span class="off">X</span>
+        </div>
+        <div class="pro_container">
+            <ul class="col">
+                <li class="col-choose">
+                    <div class="choose_box">
+                            <div class="checkbox"></div>
+                            <span class="txt">全选</span>
+                    </div>
+                </li>
+                <li class="col-price">单价(元)</li>
+                <li class="col-mount">数量</li>
+                <li class="col-subtotal">小计(元)</li>
+                <li class="col-edit col_last">编辑</li>
+            </ul>
+            <div class="favourable">
+                <div class="choose_box">
+                    <div class="checkbox"></div>
+                    <span class="txt">魅族</span>
+                </div>
+                <div class="add_buy_box">
+                    <span>再买<em>80.00</em>元，即可换免运费</span>
+                    <a href="" class="now_add">立即凑单 ></a>
+                    <!-- <span class="fare">已免运费</span> -->
+                </div>
+            </div>
+            <div class="pro_lists">
+                <ul class="list_item">
+                    <li class="col-choose">
+                        <div class="checkbox"></div>
+                        <a href="" class="img_link">
+                                <img class="little_img"
+                                src="//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@120x120.png" alt="">
+                        </a>
+                        <div class="desc">
+                            <h3 class="name">魅族 Note9</h3>
+                            <p class="config">全网通公开版 幻黑 4+64GB</p>
+                        </div>
+                    </li>
+                    <li class="col-price">
+                        <em>￥</em><span>1598.00</span>
+                    </li>
+                    <li class="col-mount">
+                        <div class="mount_box">
+                            <span class="disable">-</span><input type="text" value="1"><span>+</span>
+                        </div>
+                    </li>
+                    <li class="col-subtotal"> 
+                        <em>￥</em><span>1598.00</span>
+                    </li>
+                    <li class="col-edit">
+                        <div>--</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="del_all_container">
+            <div class="payment_left">
+                <div class="choose_box">
+                    <div class="checkbox"></div>
+                    <span class="txt">全选</span>
+                </div>
+                <div class="checked_mount">
+                    <p>删除选中的商品</p>
+                    <p class="mount_box">共<span class="all_mount">1</span>商品，已选择<span class="choose_mount">0</span>件</p>
+                </div>
+            </div>
+            <div class="payment_right">
+                <p class="pro_fare">已优惠<span class="price_red price_less">0.00</span>元，合计(不含运费)：<em class="price_red num_size">￥</em> <span class="price_red total_price num_size">0.00</span></p>
+                <a href="" class="btn_pay">去结算</a>
+            </div>
+        </div>
+    </section>
+    <footer></footer>
+</body>
+</html>

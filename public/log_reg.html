@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/log_reg.css">
+</head>
+<body>
+      <header>
+            <div class="header-box">
+                <a class="meizu_icon" href=""></a>
+            </div>  
+      </header>
+      <section>
+            <div class="main">
+                <div class="login-box">
+                    <form action="" class="main-form">
+                        <p><input type="text" data-login="uname" placeholder="3-10位数字,字母或下划线的用户名" class="ipt"></p>
+                        <div class="ipt_tip"><span></span></div>
+                        <p><input type="password" data-login="upwd" placeholder="6位数字的密码" class="ipt"></p>
+                        <div class="ipt_tip"><span></span></div>
+                        <p class="remen_code_box"><label for=""><input type="checkbox"><i class="remen_code">记住密码</i></label></p>
+                        <p><input  class="ipt ipt_btn" data-login="btn" value="登录" type="button"></p>
+                        <div class="regi_code"><a href="">注册</a><a href="">忘记密码？</a></div>
+                    </form>
+                </div>
+                <div class="reg-box">
+                    <form action="">
+                        <div class="txt">
+                            <span class="newuser">新用户注册</span>
+                            <a href="" class="instanlog">直接登录</a>
+                        </div>
+                        <div class="form-group">
+                            <span>用户名：</span>
+                            <input autofocus type="text" placeholder="3-8位数字、字母或下划线" data-reg="uname">
+                        </div>
+                        <span></span>
+                        <div class="form-group">
+                            <span>登录密码：</span>
+                            <input type="password" placeholder="6位数字" data-reg="upwd">
+                        </div>
+                        <span></span>
+                        <div class="form-group">
+                            <span>确认密码：</span>
+                            <input type="password" placeholder="6位数字" data-reg="cfupwd">
+                        </div>
+                        <span></span>
+                        <div class="form-group">
+                            <span>邮箱：</span>
+                            <input type="text" placeholder="请输入邮箱地址" data-reg="email">
+                        </div>
+                        <span></span>
+                        <div class="form-group">
+                            <span>手机号：</span>
+                            <input type="text" placeholder="请输入你的手机号" data-reg="phone">
+                        </div>
+                        <span></span>
+                        <div class="sb">
+                            <input class="sb_btn" type="button" value="提交" data-reg="submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+      </section>
+      <footer>
+          <div class="footer-box">
+            <div class="footer-top">
+               <ul class="footer-link">
+                   <li><a href="" class="about-meizu">关于魅族</a></li>
+                   <li><a href="">工作机会</a></li>
+                   <li><a href="">联系我们</a></li>
+                   <li><a href="">法律声明</a></li>
+                   <li><a href="">常见问题</a></li>
+                   <li class="language-item" data-lan="drop"><a href="" class="language-link">简体中文</a>
+                    <div class="language-dropdown">
+                        <a href="" class="dro-Chinese">简体中文</a>
+                        <a href="" class="dro-English">English</a>
+                    </div>
+                </li>
+               </ul>
+                <div  class="line-serve">
+                    <span>客服热线</span>
+                    <span>400-788-3333</span>
+                    <a href="">在线客服</a>
+                </div>
+                <div class="outer-link">
+                    <a href="" class="weibo"></a>
+                    <a href="" class="weichat" data-icon="wexin"></a>
+                    <a href="" class="space"></a>
+                    <div class="weichat_qr_code hidden" data-scan="wexin"><img src="img/meizu_qr_code.PNG" alt=""></div>
+                </div>
+            </div>
+            <p class="version-info">
+                    <span> ©2019 Meizu Telecom Equipment Co.,
+                     Ltd. All rights reserved.</span>
+                    <a href=""> 备案号: 粤ICP备13003602号-4</a>
+                     <a href="">经营许可证编号: 粤B2-20130198 营业执照</a>
+                     <a href="" class="badge">粤公网安备 44049102496076号</a>            
+            </p>
+          </div>
+      </footer>
+      <!-- 输入错误提示窗 -->
+      <div class="err_box" data-login="errbox">
+          <div class="err">
+              <p class="err_item err_fail">登录失败!</p>
+                <p class="err_item">用户或密码错误</p>
+                    <span class="err_btn" data-login="cf">确定</span>
+          </div>
+      </div>
+      <script src="js/jquery-1.11.3.js"></script>
+      <script src="js/ajax.js"></script>
+      <script src="js/log_reg.js"></script>
+      <!-- <script src="js/login.js"></script> -->
+      <script src="js/register.js"></script>
+</body>
+</html>

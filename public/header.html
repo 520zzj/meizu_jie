@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="base.css"> -->
+    <link rel="stylesheet" href="css/header.css">
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <style>
+    [v-cloak]{
+        display: none;
+    }
+    </style>
+</head>
+<body>
+    <div class="header" data-bgc="trapar">
+        <div class="header_box" data-bgc="trapar">
+            <div class="logo"><a href=""><img src="img/logo.png" alt=""></a></div>
+            <ul class="nav">
+                <li data-menu="dropdown"><a href="">手机</a>
+                    <ul class="disappear" data-menu="box" data-target="first">
+                        <!-- <li data-img="list" v-for="elem of res"><a href=""><img :src="elem.hsrc" alt=""></a>
+                        <p v-cloak>{{elem.hname}}</p>
+                        <p v-cloak>￥{{elem.price}}</p>
+                        </li> -->
+                        <!-- <li data-img="list"><a href=""><img src="img/Cgbj0FvINLWACd0AAAh2dGv5_R0516.png@240x240.jpg" alt=""></a>
+                            <p>魅族 16x</p>
+                            <p>&yen;1768</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0VuhxsmABvIIAAMCZZS4ycg181.png@240x240.jpg" alt=""></a>
+                            <p>魅族 v8高配版</p>
+                            <p>&yen;898</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0FusSK2AQZgiAAlFKHoO-co889.png@240x240.jpg" alt=""></a>
+                            <p>魅族 x8</p>
+                            <p>&yen;1298</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0FtqgnmAFgJPAAhgnScaoFg724.png@240x240.jpg" alt=""></a>
+                            <p>魅族 16th</p>
+                            <p>&yen;2498</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0FrcblSAGHrPAAvT_qZZSA0427.png@240x240.jpg" alt=""></a>
+                            <p>魅族 15</p>
+                            <p>&yen;1498</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0Vq9-oeARs_XAALvUdl5qpo302.png@240x240.jpg" alt=""></a>
+                            <p>魅族 E3</p>
+                            <p>&yen;1799</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0VsM-kuAGYZmAAm_NQr8nSk674.png@240x240.jpg" alt=""></a>
+                            <p>魅族 6T</p>
+                            <p>&yen;799</p>
+                        </li> -->
+                     </ul>
+                </li>
+                <li data-menu="dropdown"><a href="">声学</a>
+                    <ul class="disappear" data-menu="box">
+                        <li data-img="list"><a href=""><img src="img/Cgbj0Fsp-8yATCDFAASWKnb1fdQ339.png@240x240.jpg" alt=""></a>
+                        <p>pop真无线蓝牙耳机</p>
+                        <p>&yen;499</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0FpeqUqAYAbBAAJRQlEIMmc702.png@240x240.jpg" alt=""></a>
+                            <p>魅族 Flow Bass 三单元hhhhhh</p>
+                            <p>&yen;1768</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0VrcX6yABHxPAARZwWUAjc4748.png@240x240.jpg" alt=""></a>
+                            <p>魅族 HALO 激光蓝牙耳机</p>
+                            <p>&yen;499</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/1459849377-64075.png@240x240.jpg" alt=""></a>
+                            <p>魅族 EP51 蓝牙运动耳机</p>
+                            <p>&yen;129</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0Fui_-OAIlOuAAIlimOCLcA452.png@240x240.jpg" alt=""></a>
+                            <p>魅族 EP52 Lite 蓝牙耳机</p>
+                            <p>&yen;129</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0FpeqaKAYLSmAATXqR4BPH8829.png@240x240.jpg" alt=""></a>
+                            <p>魅族 LIVE 四单元动铁耳机</p>
+                            <p>&yen;1099</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0Ft-WkOAAhCKAAFqcNe6c3M482.png@240x240.jpg" alt=""></a>
+                            <p>魅族 EP-31</p>
+                            <p>&yen;39</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0Vn2f8mAcov7AAHUhmjUdk0958.png@240x240.jpg" alt=""></a>
+                            <p>魅族 EP52 蓝牙耳机</p>
+                            <p>&yen;199</p>
+                        </li>
+                     </ul>
+                </li>
+                <li data-menu="dropdown"><a href="">配件</a>
+                    <ul class="disappear" data-menu="box">
+                        <li data-img="list"><a href=""><img src="img/Cgbj0VugrWKAXgQoAALx033SuQ0691.png@240x240.jpg" alt=""></a>
+                        <p>魅族移动电源3</p>
+                        <p>&yen;79</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/1467170145-52479.png@240x240.jpg" alt=""></a>
+                            <p>快速充电适配器（UP08.......</p>
+                            <p>&yen;69</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0VrcXw2AL0tBAApTh_xwKKk709.png@240x240.jpg" alt=""></a>
+                            <p>魅族无线充电器</p>
+                            <p>&yen;79</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0FqYqxqAcZ-nAAGaLqkN71s729.png@240x240.jpg" alt=""></a>
+                            <p>魅族Type-C无线充电线</p>
+                            <p>&yen;49</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/1458617159-29477.png@240x240.jpg" alt=""></a>
+                            <p>魅族Micro USB数据线</p>
+                            <p>&yen;29</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/CnQOjVef_HaAaD-bAAHXId4TWtA165.png@240x240.jpg" alt=""></a>
+                            <p>魅族Type-C金属数据线</p>
+                            <p>&yen;39</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0VwkSZKATjTlAAajD8PGNhs208.png@240x240.jpg" alt=""></a>
+                            <p>魅族 16th 高透保护膜</p>
+                            <p>&yen;19</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0Ft7iV6AQANcAAL00J0tbyQ152.png@240x240.jpg" alt=""></a>
+                            <p>魅族 16Plus 亲肤保护膜</p>
+                            <p>&yen;29</p>
+                        </li>
+                     </ul>
+                </li>
+                <li data-menu="dropdown"><a href="">生活</a>
+                    <ul class="disappear" data-menu="box">
+                        <li data-img="list"><a href=""><img src="img/Cix_s1gYZWCAc1jqAAGoLQ8h81w741.png@240x240.jpg" alt=""></a>
+                        <p>魅族盒子一键找回遥控器</p>
+                        <p>&yen;199</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/1465698264-58364.jpg@240x240.jpg" alt=""></a>
+                            <p>魅族 路由器 极速版</p>
+                            <p>&yen;99</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/CnQOjViEff2AGm-aAADs7Q-pP_M820.png@240x240.jpg" alt=""></a>
+                            <p>魅族桌面多功能USB排插</p>
+                            <p>&yen;89</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0Vqwv3SAKEs9AAeZO9uMlbg447.png@240x240.jpg" alt=""></a>
+                            <p>Everyday乐游系列 酷M.....</p>
+                            <p>&yen;599</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cix_s1g7l-yANQsqAAJSWz441uE109.jpg@240x240.jpg" alt=""></a>
+                            <p>魅蓝休闲旅行双肩包</p>
+                            <p>&yen;199</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0Vn6yW6AUlsRAAWrjB0SvJc768.png@240x240.jpg" alt=""></a>
+                            <p>魅蓝胸包</p>
+                            <p>&yen;89</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0Vmnd4mACpbbAAWpKisBvl4526.png@240x240.jpg" alt=""></a>
+                            <p>魅蓝数码收纳包</p>
+                            <p>&yen;59</p>
+                        </li>
+                        <li data-img="list"><a href=""><img src="img/Cgbj0VlZqvaAGb0QAAUD7V55-H8213.png@240x240.jpg" alt=""></a>
+                            <p>魅蓝旅行包</p>
+                            <p>&yen;269</p>
+                        </li>
+                     </ul>
+                </li>
+                <li><a href="">Flyme</a></li>
+                <li><a href="">服务</a></li>
+                <li><a href="">专卖店</a></li>
+                <li><a href="">社区</a></li>
+                <li data-menu="dropdown"><a href="">APP下载</a>
+                   <ul class="disappear" data-menu="box">
+                       <div class="app_download">
+                           <a href="" class="down_left"><img src="img/android_down2.png" alt=""></a><a href="" class="down_right"><img src="img/android_down1.png" alt=""></a>
+                    </div>
+                   </ul>
+                </li>
+            </ul>
+            <ul class="box_right">   
+                <li class="search"><input @keyup.up="arrowup" @keyup.down="arrowdown"  v-focus @keyup.enter="search" data-bgc="trapar" type="text" placeholder="魅族 Note8" v-model="val"><a><img  @click="search" src="img/search.png" alt=""></a>
+                <ul class="search_tip">
+                    <li :class="{bgc:i==now}" v-for="(elem,i) in tips">{{elem.pname}}</li>
+                </ul>
+                </li>
+                <li class="user_icon" data-user="menu"><a href=""><img src="img/user.png" alt=""></a>
+                <ul class="arrow hidden">
+                    <li><a href="">立即登录</a></li>
+                    <li><a href="">立即注册</a></li>
+                    <li><a href="">我的订单</a></li>
+                    <li><a href="">M码通道</a></li>
+                </ul>
+                <ul class="hidden arrow">   
+                        <li><a href="">个人中心</a></li>
+                        <li><a href="">我的订单</a></li>
+                        <li><a href="">M码通道</a></li>
+                        <li><a href="">退出登录</a></li>
+                    </ul>
+                </li>
+                <li class="cart_icon" data-cart="tip"><a href=""><img src="img/cart.png" alt=""></a><span>10</span>
+                <div class="cart_icon_tip">
+                    <p>登录后可显示</p>
+                    <p>您的账号中已加入的商品哦~</p>
+                </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+  
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    span{
+        text-decoration: none;
+        display: block;
+        width:400px;
+        height:400px;
+        border:1px solid red;
+        position: relative;
+    }
+    video{
+        width:100%;
+        height:100%;
+    }
+    div{
+        position: absolute;
+        width:30px;
+        height:30px;
+        left:50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        display: none;
+        z-index: 999;
+    }
+    .pause{
+        background-image: url("./img/pause.png");
+    }
+    .play{
+        background-image: url("./img/play.png");
+    }
+    </style>
+</head>
+<body>
+    <span id="video_box">
+            <div class="play"></div>
+            <video id="v" 
+            src="./video/note9-products.mp4"  loop controls poster="./img/103175b7-33ea-4974-abd4-dabe7c15fa6f.jpg" preload="auto"></video>
+    </span>
+    <!-- <button id="play_btn">播放</button>
+    <button id="paused_btn">暂停</button> -->
+   <script>
+       var v=document.getElementById("v")
+   v.volume=0.5//控制播放音量
+   //视频回放速率 大于1快放，小于1慢放
+   v.playbackRate=1
+   //获取当前视频播放状态
+   console.log(v.paused)//true是暂停播放
+//   play_btn.onclick=function(){
+//       v.play();
+//   }
+//   paused_btn.onclick=function(){
+//       v.pause()
+//   }
+    video_box.addEventListener("mouseover",function(){
+        this.children[0].style.display="block"
+    })
+    video_box.addEventListener("mouseout",function(){
+        this.children[0].style.display="none"
+    })
+    var d=video_box.children[0]
+    console.log(d)
+    d.addEventListener("click",function(){
+        console.log(this.className)
+        if(this.className=="play"){
+            this.className="pause"
+           v.play()
+        }
+        else{
+            this.className="play"
+            v.pause()  
+        }
+    })
+   </script>
+</body>
+</html>
