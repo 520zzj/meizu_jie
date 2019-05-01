@@ -8,6 +8,7 @@
     //保存验证结果的一些变量,默认全为false
     var un=false,up=false,cf=false,ph=false,em=false
     // 当文本框失去焦点的时候，判断输入是否合法，并给与提示 
+    //用户名验证，还需验证是否用户名被占用，发送ajax查询到被占用，给与提示
     uname.addEventListener("blur",function(){
      un=myreg(/^\w{3,8}$/,this,"用户名不能为空","用户名可用","格式不规范")
      if(un){
@@ -20,6 +21,10 @@
             if(res.code==-1){
                 console.log(res.msg)
                 uname.parentNode.nextElementSibling.innerHTML=res.msg
+                // //提示颜色也发生变化为红色
+                uname.parentNode.nextElementSibling.className=""
+                uname.parentNode.nextElementSibling.classList.add("err")
+                
             }
         })
      }
@@ -42,7 +47,12 @@
     })
     
 
-    // 封装输入框的验证，并返回一个bool值
+    // 封装输入框的验证，并返回一个bool值,为验证结果
+    //参数pattern：验证的正则表达式
+    //参数elem：要验证的输入框元素
+    //isNull：当输入内容为空时的提示
+    //success:验证通过的提示
+    //fail：验证失败的提示
     function myreg(pattern,elem,isNull,success,fail){
     var span=elem.parentNode.nextElementSibling 
         if(!elem.value){
@@ -71,7 +81,7 @@
     var sb=document.querySelector("[data-reg=submit]")
     sb.addEventListener("click",function(){
         //输入框全部验证通过才允许发送请求
-        if(un||up||cf||ph||em){
+        if(un&&up&&cf&&ph&&em){
             ajax({
                 method:"post",
                 dataType:"json",
