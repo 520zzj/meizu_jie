@@ -22,56 +22,83 @@ $(function(){
 });
 //登录操作
 (()=>{
+    //获取输入框dom元素
     var login_btn=document.querySelector("[data-login=btn]")
     var login_uname=document.querySelector("[data-login=uname]")
     var login_upwd=document.querySelector("[data-login=upwd]")
-    var span_uname=login_uname.parentNode.nextElementSibling.children[0]
-    span_upwd=login_upwd.parentNode.nextElementSibling.children[0]
+    //声明用于接收验证输入框函数的返回值的变量,默认为false
+    var un=false,up=false
+   // 封装输入框的验证，并返回一个bool值,为验证结果
+    //参数pattern：验证的正则表达式
+    //参数elem：要验证的输入框元素
+    //isNull：当输入内容为空时的提示
+    //success:验证通过的提示
+    //fail：验证失败的提示
+    function myreg(pattern,elem,isNull,success,fail){
+    var div=elem.parentNode.nextElementSibling
+        var reg=pattern
+        if(elem.value==""){
+            div.className=""
+            div.classList.add("tips_fail")
+            div.innerHTML=isNull
+            return false;
+        }else{
+            if(reg.test(elem.value)){
+                div.className=""
+                div.classList.add("tips_success")
+                div.innerHTML=success
+                return true;
+            }else{
+                div.className=""
+                div.classList.add("tips_fail")
+                div.innerHTML=fail
+                return false;
+            }
+        }
+    }
     //验证用户名
     login_uname.addEventListener("blur",function(){
-        var reg=/^\w{3,8}$/
-        if(!reg.test(login_uname.value)){
-            span_uname.parentNode.classList.add("tips_fail")
-            span_uname.innerHTML="输入不规范"
-        }
+      un=myreg(/^\w{3,8}$/,this,"用户名不能为空","格式正确","格式不规范")
     })
-    login_uname.addEventListener("focus",function(){
-        span_uname.innerHTML=""
-        span_uname.parentNode.classList.remove("tips_fail")
-    })
-   //验证用户密码
+   
+   //验证密码
+   //input事件监听输入框value的变化
    login_upwd.addEventListener("input",function(){
-       if(login_upwd.value!=""){
-        var reg=/^\d{6}$/
-        span_upwd.parentNode.classList.add("tips_fail")
-        span_upwd.innerHTML="请输入规范"
-        if(reg.test(login_upwd.value)){
-            span_upwd.parentNode.classList.remove("tips_fail")
-            span_upwd.innerHTML=""
-        }
-       }
+      up=myreg(/^\d{6}$/,this,"密码不能为空","格式正确","格式不规范")
     })
     //点击登录按钮
     var errbox=document.querySelector("[data-login=errbox]")
-    login_btn.addEventListener("click",function(){
-        var uname=login_uname.value
-        var upwd=login_upwd.value
-        ajax({
-            method:"get",
-            url:"http://127.0.0.1:9000/login/",
-            dataType:"json",
-            data:`uname=${uname}&upwd=${upwd}`
-        }).then(res=>{
-            console.log(res)//{code:1}  
-            //如果res.code==1,则跳转页面
-            //否则提示用户或密码错误
-            if(res.code==1){
-                console.log("页面跳转")
-            }else{
-                errbox.style.display="block"
-            }
-        })
-    })
+    login_btn.addEventListener("click",login())
+    //点击登录按钮的函数
+    function login(){
+        //当输入框都不为空的时候才允许发送ajax
+        if(un&&up){
+            ajax({
+                method:"get",
+                url:"http://127.0.0.1:9000/login/",
+                dataType:"json",
+                data:`uname=${login_uname.value}&upwd=${login_upwd.value}`
+            }).then(res=>{
+                console.log(res)//{code:1}  
+                //如果res.code==1,则跳转页面
+                //否则提示用户或密码错误
+                if(res.code==1){
+                    console.log("页面跳转")
+                }else{
+                    errbox.style.display="block"
+                }
+            })
+        }   
+    }
+   //监听密码输入框，按enter键执行登录操作,用keyup事件
+ login_upwd.addEventListener("keyup",function(e){
+     //当按回车键时，触发点击登录的函数
+     if(e.keyCode==13){
+        login()
+     }
+ })
+ 
+
 //点击确定按钮，错误提示窗消失
     var confirm_btn=document.querySelector("[data-login=cf]")
     confirm_btn.addEventListener("click",function(){
