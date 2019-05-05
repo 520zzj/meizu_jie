@@ -9,7 +9,7 @@ router.get("/",(req,res)=>{
         pno=1
     }
     if(!ps){
-        ps=24
+        ps=9
     }
     var offset=parseInt((pno-1)*ps)
     ps=parseInt(ps)
