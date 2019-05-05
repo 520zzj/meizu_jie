@@ -8,6 +8,7 @@ const Index=require("./routes/index.router.js");
 const Head=require("./routes/head.router.js")
 const login=require("./routes/login_router")
 const register=require("./routes/register_router")
+const productlist=require("./routes/productList_router")
 var app=express();
 var server=app.listen(9000);
 app.use(session({//配置session
@@ -31,3 +32,4 @@ app.use("/index",Index)
 app.use("/head",Head)
 app.use("/login",login)
 app.use("/register",register)
+app.use("/productlist",productlist)
