@@ -1,3 +1,47 @@
+(function(){
+    ajax({
+        method:"get",
+        url:"http://127.0.0.1:9000/productlist/",
+        dataType:"json",
+        data:"pno=1"
+    }).then(res=>{
+        console.log(res)
+        var htmli="",htmlo=""
+        var arr=[]
+        for(var p of res.prolis){
+            for(var c of res.color){
+                if(c.prolisId==p.pid){
+                    arr.push(c)
+                    console.log(p.pid)
+                }
+              
+            }
+            for(var item of arr){
+                htmli+=`<li data-link="1" title=${item.cname} data-imgSrc=${item.psrc} data-lazy="org">
+                <img data-link="2" src=${item.csrc} alt="">
+            </li>`
+            }
+            htmlo+=`<li class="list_item" title=${p.pname}>
+            <a href="" class="list_link" data-link="a">
+                <img src="" alt="" data-link="0" data-lazy="img">
+                <ul class="pro_color" data-link="0">${htmli}</ul>
+                <h3 class="name" data-link="0">${p.pname}</h3>
+                <p class="desc" data-link="0">${p.pdesc}</p>
+                <p class="price" data-link="0">
+                    <em data-link="1">￥</em>
+                    <span data-link="1">${p.pprice}</span>
+                </p>
+                <span class="sign" data-link="0">${p.psign}</span>
+            </a>
+        </li>`
+       arr.length=0;
+       htmli=""
+        }
+        var ul=document.querySelector(".container .pro_list")
+        ul.innerHTML=htmlo
+      
+    })
+})();
 //推荐，新品，价格
 (()=>{
     var div=document.querySelector("[data-nav=pro_list]")
@@ -76,4 +120,19 @@
         }
         
     })
+})();
+(()=>{
+    //每个商品里面默认选中第一个导航小图标   
+    var imgs=document.querySelectorAll("[data-lazy=img]")
+    var uls=document.querySelectorAll(".pro_list .pro_color")
+    console.log(imgs,uls)
+    for(var ul of uls){
+        var lis=ul.children
+        for(var i=0;i<lis.length;i++){
+            if(!lis[i].children.hasClass("active")){
+                lis[0].classList.add("active")
+            }
+        }
+    }
+    
 })();
