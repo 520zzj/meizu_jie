@@ -144,41 +144,28 @@ INSERT INTO head_phone(hid,hsrc,hname,price) VALUES (NULL,"img/Cgbj0Vq9-oeARs_XA
 INSERT INTO head_phone(hid,hsrc,hname,price) VALUES (NULL,"img/Cgbj0VsM-kuAGYZmAAm_NQr8nSk674.png@240x240.jpg","魅族 6T",799);
 CREATE TABLE product_list(
     pid INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    pname VARCHAR(20),
-    pdesc VARCHAR(50),
+    pname VARCHAR(50),
+    pdesc VARCHAR(100),
     pprice DECIMAL(6,0),
     psign VARCHAR(10)
 );
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (null,"魅族 16s","5月6日上午10点开售 | 骁龙855 4800W光学防抖",3198,"新品");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 16th","晓龙845 屏幕下指纹",2498,"img/Cgbj0VtqgmyADfzUAAdk_Uz-jKk371.png","限售");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 16th Plus","晓龙845 屏幕下指纹",2988,"img/Cgbj0FtqgkWALkhxAAkE5Uiy2no917.png","限时券");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 x8","人脸指纹双解锁 旗舰双摄",1298,"img/Cgbj0FusSK2AQZgiAAlFKHoO-co889.png","直降");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 16x","高通晓龙710 屏幕下指纹旗舰双摄",1789,"img/Cgbj0VvINL-AGM20AAw4GirVtYA698.png","领券");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 Note8","全像素双核对焦 大电池长续航",999,"img/Cgbj0VvQPnuAAwPPAAMv8zzt2DE910.png","领券");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 V8 高配版","1200万+500万高清双摄",898,"img/Cgbj0VujaMyAYB76AATj19tgy08068.png","领券");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 15","晓龙660 2000万暗光双摄",1498,"img/Cgbj0FrcbkeAW38NAAjvsXhhyFE066.png","领券");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 15 Plus","8895处理器 2000万暗光双摄",1798,"img/Cgbj0FrcbqKANbtFAAu0nXkFYY4657.png",NULL);
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 E3","晓龙636处理器 全系6G大运存",1799,"img/Cgbj0Vq9-oeARs_XAALvUdl5qpo302.png",NULL);
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (null,"魅族 Note9","吃鸡不卡 拍她更美 | 晓龙675后置4800万",1398,"img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png","新品");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 16th","晓龙845 屏幕下指纹",2498,"img/Cgbj0VtqgmyADfzUAAdk_Uz-jKk371.png","限售");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 16th Plus","晓龙845 屏幕下指纹",2988,"img/Cgbj0FtqgkWALkhxAAkE5Uiy2no917.png","限时券");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 x8","人脸指纹双解锁 旗舰双摄",1298,"img/Cgbj0FusSK2AQZgiAAlFKHoO-co889.png","直降");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 16x","高通晓龙710 屏幕下指纹旗舰双摄",1789,"img/Cgbj0VvINL-AGM20AAw4GirVtYA698.png","领券");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 Note8","全像素双核对焦 大电池长续航",999,"img/Cgbj0VvQPnuAAwPPAAMv8zzt2DE910.png","领券");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 V8 高配版","1200万+500万高清双摄",898,"img/Cgbj0VujaMyAYB76AATj19tgy08068.png","领券");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 15","晓龙660 2000万暗光双摄",1498,"img/Cgbj0FrcbkeAW38NAAjvsXhhyFE066.png","领券");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 15 Plus","8895处理器 2000万暗光双摄",1798,"img/Cgbj0FrcbqKANbtFAAu0nXkFYY4657.png",NULL);
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 E3","晓龙636处理器 全系6G大运存",1799,"img/Cgbj0Vq9-oeARs_XAALvUdl5qpo302.png",NULL);
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (null,"魅族 Note9","吃鸡不卡 拍她更美 | 晓龙675后置4800万",1398,"img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png","新品");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 16th","晓龙845 屏幕下指纹",2498,"img/Cgbj0VtqgmyADfzUAAdk_Uz-jKk371.png","限售");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 16th Plus","晓龙845 屏幕下指纹",2988,"img/Cgbj0FtqgkWALkhxAAkE5Uiy2no917.png","限时券");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 x8","人脸指纹双解锁 旗舰双摄",1298,"img/Cgbj0FusSK2AQZgiAAlFKHoO-co889.png","直降");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 16x","高通晓龙710 屏幕下指纹旗舰双摄",1789,"img/Cgbj0VvINL-AGM20AAw4GirVtYA698.png","领券");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 Note8","全像素双核对焦 大电池长续航",999,"img/Cgbj0VvQPnuAAwPPAAMv8zzt2DE910.png","领券");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 V8 高配版","1200万+500万高清双摄",898,"img/Cgbj0VujaMyAYB76AATj19tgy08068.png","领券");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 15","晓龙660 2000万暗光双摄",1498,"img/Cgbj0FrcbkeAW38NAAjvsXhhyFE066.png","领券");
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 15 Plus","8895处理器 2000万暗光双摄",1798,"img/Cgbj0FrcbqKANbtFAAu0nXkFYY4657.png",NULL);
-INSERT INTO product_list(pid,pname,pdesc,pprice,psrc,psign) VALUES (NULL,"魅族 E3","晓龙636处理器 全系6G大运存",1799,"img/Cgbj0Vq9-oeARs_XAALvUdl5qpo302.png",NULL);
+INSERT INTO product_list(pid,pname,pdesc,pprice,psign) VALUES (NULL,"魅族 16th","51购实惠 | 骁龙845 屏幕下指纹",2298,"直降");
+INSERT INTO product_list(pid,pname,pdesc,pprice,psign) VALUES (null,"魅族 16s","骁龙855 4800W光学防抖",3198,"新品");
+INSERT INTO product_list(pid,pname,pdesc,pprice,psign) VALUES (NULL,"魅族 x8","人脸指纹双解锁 旗舰双摄",1298,"直降");
+INSERT INTO product_list(pid,pname,pdesc,pprice,psign) VALUES (null,"魅族 Note9","吃鸡不卡 拍她更美 | 晓龙675后置4800万",1398,"新品");
+INSERT INTO product_list(pid,pname,pdesc,pprice,psign) VALUES (NULL,"魅族 16x","高通晓龙710 屏幕下指纹旗舰双摄",1789,"领券");
+INSERT INTO product_list(pid,pname,pdesc,pprice,psign) VALUES (NULL,"魅族 16th Plus","晓龙845 屏幕下指纹",2988,"限时券");
+INSERT INTO product_list(pid,pname,pdesc,pprice,psign) VALUES (NULL,"魅族 Note8","全像素双核对焦 大电池长续航",999,"领券");
+INSERT INTO product_list(pid,pname,pdesc,pprice,psign) VALUES (NULL,"魅族 V8 高配版","1200万+500万高清双摄",898,"领券");
+INSERT INTO product_list(pid,pname,pdesc,pprice,psign) VALUES (NULL,"魅族 15","晓龙660 2000万暗光双摄",1498,null);
+INSERT INTO product_list(pid,pname,pdesc,pprice,psign) VALUES (NULL,"魅族 15 Plus","8895处理器 2000万暗光双摄",1798,NULL);
+INSERT INTO product_list(pid,pname,pdesc,pprice,psign) VALUES (NULL,"魅族 E3","晓龙636处理器 全系6G大运存",1799,NULL);
+INSERT INTO product_list(pid,pname,pdesc,pprice,psign) VALUES (NULL,"魅族 16th 高透保护膜","高透光率 支持魅族16th屏幕指纹解锁",19,NULL);
+INSERT INTO product_list(pid,pname,pdesc,pprice,psign) VALUES (NULL,"魅族 16th Plus 亲肤保护壳","量体打造的纤薄 薄如无形",29,NULL);
+INSERT INTO product_list(pid,pname,pdesc,pprice,psign) VALUES (NULL,"魅族 Micro USB 数据线","广泛兼容 经久耐用",29,NULL);
+
+
+
 
 
 
@@ -201,16 +188,61 @@ CREATE TABLE icon_color_src(
     foreign key(prolisId) references product_list(pid)
 );
 
-INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"幻影蓝","http://127.0.0.1:9000/img/Cgbj0VzFXcWADbyoAAAbAyGs-Hw580.png","//127.0.0.1:9000/img/Cgbj0Vy9c0GAVhJoAAjSpZmLQ2k220.png@480x480.jpg",1);
-INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"凝光白","http://127.0.0.1:9000/img/Cgbj0FzFXcWAatqeAAAWGAde3TI196.png","//127.0.0.1:9000/img/Cgbj0Vy9czKAcknWAAeeKULcEXg126.png@480x480.jpg",1);
-INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"碳纤黑","http://127.0.0.1:9000/img/Cgbj0FzFXcWAUCvwAAAWicGGU48268.png","//127.0.0.1:9000/img/Cgbj0Fy9c0KAXyeaAAa7nrDVZiw073.png@480x480.jpg",1);
-INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"幻黑","http://127.0.0.1:9000/img/1451459052-28689.png","//127.0.0.1:9000/img/Cgbj0VujaMOAFzUFAARRWnHvM84529.png@480x480.jpg",);
-INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"雅金","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAKTLmAAAKABlplKE204.png","//127.0.0.1:9000/img/Cgbj0VujaMyAYB76AATj19tgy08068.png@480x480.jpg",);
-INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"灰蓝","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAb9uWAAAJ72eJf_8989.png","//127.0.0.1:9000/img/Cgbj0FvRoBuAPurkAAKeRCbcKvM061.png@480x480.jpg",);
-INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"烟紫","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAXiNDAAAJ9hjovo8776.png","//127.0.0.1:9000/img/Cgbj0VvRoByAY7m7AAKnNypBK54141.png@480x480.jpg",);
-INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"静夜黑","http://127.0.0.1:9000/img/Cgbj0Vw0T3KAVpPqAAAKRl5WFHo585.png","//127.0.0.1:9000/img/Cgbj0FtqgnmAFgJPAAhgnScaoFg724.png@480x480.jpg",);
-INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"远山白","http://127.0.0.1:9000/img/Cgbj0Vw0T3SActowAAAJazF5kdU066.png","//127.0.0.1:9000/img/Cgbj0VtqgmyADfzUAAdk_Uz-jKk371.png@480x480.jpg",);
-INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"极光蓝","http://127.0.0.1:9000/img/Cgbj0Vw0T3OAco2pAAAY2Ea5xv4546.png","//127.0.0.1:9000/img/Cgbj0FujRsOADooMAAbehLx6_Co899.png@480x480.jpg",);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"幻影蓝","http://127.0.0.1:9000/img/Cgbj0VzFXcWADbyoAAAbAyGs-Hw580.png","//127.0.0.1:9000/img/Cgbj0Vy9c0GAVhJoAAjSpZmLQ2k220.png@480x480.jpg",2);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"凝光白","http://127.0.0.1:9000/img/Cgbj0FzFXcWAatqeAAAWGAde3TI196.png","//127.0.0.1:9000/img/Cgbj0Vy9czKAcknWAAeeKULcEXg126.png@480x480.jpg",2);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"碳纤黑","http://127.0.0.1:9000/img/Cgbj0FzFXcWAUCvwAAAWicGGU48268.png","//127.0.0.1:9000/img/Cgbj0Fy9c0KAXyeaAAa7nrDVZiw073.png@480x480.jpg",2);
+
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"静夜黑","http://127.0.0.1:9000/img/Cgbj0Vw0T3KAVpPqAAAKRl5WFHo585.png","//127.0.0.1:9000/img/Cgbj0FtqgnmAFgJPAAhgnScaoFg724.png@480x480.jpg",1);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"远山白","http://127.0.0.1:9000/img/Cgbj0Vw0T3SActowAAAJazF5kdU066.png","//127.0.0.1:9000/img/Cgbj0VtqgmyADfzUAAdk_Uz-jKk371.png@480x480.jpg",1);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"极光蓝","http://127.0.0.1:9000/img/Cgbj0Vw0T3OAco2pAAAY2Ea5xv4546.png","//127.0.0.1:9000/img/Cgbj0FujRsOADooMAAbehLx6_Co899.png@480x480.jpg",1);
+
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"玉白","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAEdZCAAAJazF5kdU736.png","//127.0.0.1:9000/img/Cgbj0FusSJyACGwcAAg0epdui5o951.png@480x480.jpg",3);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"亮黑","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAUsmSAAAKRl5WFHo325.png","//127.0.0.1:9000/img/Cgbj0FusSK2AQZgiAAlFKHoO-co889.png@480x480.jpg",3);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"幻蓝","http://127.0.0.1:9000/img/Cgbj0Vw0T3OAWwcZAAAKAuloWpw010.png","//127.0.0.1:9000/img/Cgbj0FusSL6AS8w5AAhRPgc1bQE955.png@480x480.jpg",3);
+
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"幻黑","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAUsmSAAAKRl5WFHo325.png","//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@480x480.jpg",4);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"皓白","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAEdZCAAAJazF5kdU736.png","//127.0.0.1:9000/img/Cgbj0Fx_ZKSATnTJAAU3Ca8M6D8964.png@480x480.jpg",4);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"星耀蓝","http://127.0.0.1:9000/img/Cgbj0Vw0T3OAWwcZAAAKAuloWpw010.png","//127.0.0.1:9000/img/Cgbj0Fx_ZMCAdyF9AAbOHZSdVO8974.png@480x480.jpg",4);
+
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"幻黑","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAUsmSAAAKRl5WFHo325.png","//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@480x480.jpg",5);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"皓白","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAEdZCAAAJazF5kdU736.png","//127.0.0.1:9000/img/Cgbj0Fx_ZKSATnTJAAU3Ca8M6D8964.png@480x480.jpg",5);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"星耀蓝","http://127.0.0.1:9000/img/Cgbj0Vw0T3OAWwcZAAAKAuloWpw010.png","//127.0.0.1:9000/img/Cgbj0Fx_ZMCAdyF9AAbOHZSdVO8974.png@480x480.jpg",5);
+
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"幻黑","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAUsmSAAAKRl5WFHo325.png","//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@480x480.jpg",6);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"皓白","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAEdZCAAAJazF5kdU736.png","//127.0.0.1:9000/img/Cgbj0Fx_ZKSATnTJAAU3Ca8M6D8964.png@480x480.jpg",6);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"星耀蓝","http://127.0.0.1:9000/img/Cgbj0Vw0T3OAWwcZAAAKAuloWpw010.png","//127.0.0.1:9000/img/Cgbj0Fx_ZMCAdyF9AAbOHZSdVO8974.png@480x480.jpg",6);
+
+
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"幻黑","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAUsmSAAAKRl5WFHo325.png","//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@480x480.jpg",7);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"皓白","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAEdZCAAAJazF5kdU736.png","//127.0.0.1:9000/img/Cgbj0Fx_ZKSATnTJAAU3Ca8M6D8964.png@480x480.jpg",7);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"星耀蓝","http://127.0.0.1:9000/img/Cgbj0Vw0T3OAWwcZAAAKAuloWpw010.png","//127.0.0.1:9000/img/Cgbj0Fx_ZMCAdyF9AAbOHZSdVO8974.png@480x480.jpg",7);
+
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"幻黑","http://127.0.0.1:9000/img/1451459052-28689.png","//127.0.0.1:9000/img/Cgbj0VujaMOAFzUFAARRWnHvM84529.png@480x480.jpg",8);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"雅金","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAKTLmAAAKABlplKE204.png","//127.0.0.1:9000/img/Cgbj0VujaMyAYB76AATj19tgy08068.png@480x480.jpg",8);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"灰蓝","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAb9uWAAAJ72eJf_8989.png","//127.0.0.1:9000/img/Cgbj0FvRoBuAPurkAAKeRCbcKvM061.png@480x480.jpg",8);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"烟紫","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAXiNDAAAJ9hjovo8776.png","//127.0.0.1:9000/img/Cgbj0VvRoByAY7m7AAKnNypBK54141.png@480x480.jpg",8);
+
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"幻黑","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAUsmSAAAKRl5WFHo325.png","//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@480x480.jpg",9);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"皓白","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAEdZCAAAJazF5kdU736.png","//127.0.0.1:9000/img/Cgbj0Fx_ZKSATnTJAAU3Ca8M6D8964.png@480x480.jpg",9);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"星耀蓝","http://127.0.0.1:9000/img/Cgbj0Vw0T3OAWwcZAAAKAuloWpw010.png","//127.0.0.1:9000/img/Cgbj0Fx_ZMCAdyF9AAbOHZSdVO8974.png@480x480.jpg",9);
+
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"幻黑","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAUsmSAAAKRl5WFHo325.png","//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@480x480.jpg",10);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"皓白","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAEdZCAAAJazF5kdU736.png","//127.0.0.1:9000/img/Cgbj0Fx_ZKSATnTJAAU3Ca8M6D8964.png@480x480.jpg",10);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"星耀蓝","http://127.0.0.1:9000/img/Cgbj0Vw0T3OAWwcZAAAKAuloWpw010.png","//127.0.0.1:9000/img/Cgbj0Fx_ZMCAdyF9AAbOHZSdVO8974.png@480x480.jpg",10);
+
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"幻黑","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAUsmSAAAKRl5WFHo325.png","//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@480x480.jpg",11);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"皓白","http://127.0.0.1:9000/img/Cgbj0Fw0T3OAEdZCAAAJazF5kdU736.png","//127.0.0.1:9000/img/Cgbj0Fx_ZKSATnTJAAU3Ca8M6D8964.png@480x480.jpg",11);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"星耀蓝","http://127.0.0.1:9000/img/Cgbj0Vw0T3OAWwcZAAAKAuloWpw010.png","//127.0.0.1:9000/img/Cgbj0Fx_ZMCAdyF9AAbOHZSdVO8974.png@480x480.jpg",11);
+
+
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"透明","http://127.0.0.1:9000/img/Cgbj0Fw8RZKAZoWmAAAJazF5kdU895.png","//127.0.0.1:9000/img/Cgbj0VwkSZKATjTlAAajD8PGNhs208.png@480x480.jpg",12);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"黑色","http://127.0.0.1:9000/img/1451459052-28689.png","//127.0.0.1:9000/img/Cgbj0Ft7iV6AQANcAAL00J0tbyQ152.png@480x480.jpg",13);
+INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"白色","http://127.0.0.1:9000/img/Cgbj0Fw8RZKAZoWmAAAJazF5kdU895.png","//127.0.0.1:9000/img/1458617159-29477.png@480x480.jpg",14);
+
+
+
+
+
 
 
 
