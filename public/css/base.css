@@ -17,7 +17,7 @@ p{word-wrap: break-word;}/* 允许长单词换行到下一行 */
 }
 body{
     background: #F4F4F4;
-    font-family:Helvetica,Tahoma,Arial,"PingFang SC","Hiragino Sans GB","Heiti SC",STXihei,"Microsoft YaHei",SimHei,"WenQuanYi Micro Hei";
+    font-family: "PingFang SC","\5FAE\8F6F\96C5\9ED1","Microsoft Yahei",Arial,Helvetica,sans-serif,"\5B8B\4F53";
 }
 /*清除浮动对父元素带来的影响*/
 .clearfloat:after{
