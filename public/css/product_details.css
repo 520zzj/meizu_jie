@@ -1,5 +1,11 @@
-body{
-    font-family: "PingFang SC","\5FAE\8F6F\96C5\9ED1","Microsoft Yahei",Arial,Helvetica,sans-serif,"\5B8B\4F53";
+/* 重置网页头的一些样式 */
+#header-main{
+    background: #ffffff;
+}
+/* 搜索提示背景颜色 */
+#header-main .search .search_tip{
+    background: #ffffff;
+    color:gray;
 }
 section{
     width:100%;
@@ -284,6 +290,7 @@ section{
     width:35px;
     border:1px solid #e7e7e7;
     background: #f7f7f7;
+    cursor: pointer;
 }
 .details_box .details_box_right .mount span.disabled{
     cursor: default;
@@ -295,6 +302,36 @@ section{
     text-align: center;
     border:1px solid  #dedede;
 }
+.details_box .details_box_right .buy_box{
+    display:flex;
+    margin:40px 0 50px 0;
+}
+.details_box .details_box_right .buy_box a{
+    display:block;
+    border-radius: 3px;
+    width:208px;
+    height:56px;
+    text-align: center;
+    line-height: 56px;
+    font-size: 22px;
+    transition: all .3s linear;
+}
+.details_box .details_box_right .buy_box a.instanbuy{
+    background: #27b3ff;
+    color:#ffffff;
+    margin-right:30px;
+}
+.details_box .details_box_right .buy_box a.inshopcart{
+    border:1px solid #27b3ff;
+    color:#27b3ff;
+}
+.details_box .details_box_right .buy_box .instanbuy:hover{
+    background: #3879D9;
+}
+.details_box .details_box_right .buy_box .inshopcart:hover{
+    background:#EEF8FD;
+}
+/* 服务说明 */
 .introduce{
     width:1240px;
     margin:0 auto;
