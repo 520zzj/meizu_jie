@@ -118,7 +118,7 @@
 //     })
 //  })();
 
-
+//搜索功能
 (()=>{
     //自定义获取焦点的指令
     Vue.directive("focus",{
@@ -138,7 +138,7 @@
         },
         methods:{
             search(){//点击图标搜索，执行查询操作
-                 console.log("查到到"+this.val)
+                 console.log("查到"+this.val)
             },
             search_tip(){//输入信息，显示相关提示信息
                 //  console.log(this.val+"的相关信息")
@@ -147,8 +147,9 @@
                         params:{
                             keyword:this.val
                         }
-                    }).then((res)=>{  
+                    }).then(res=>{  
                         vm.tips=res.data
+                        // console.log(res)
                     })
                 }
                 
