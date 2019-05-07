@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/product_details.css">
 </head>
 <body>
-   <header></header>
+   <header id="header-main"></header>
     <section>
         <div class="fast_nav_box">
             <div class="fast_nav">
@@ -107,8 +107,8 @@
                                 <span class="model_left">颜色分类</span>
                                 <div class="model_right">
                                     <a href="" class="item selected"><img class="little_img" src="./img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png80x80.png" alt=""> <span>幻黑</span></a>
-                                    <a href="" class="item selected"><img class="little_img" src="./img/Cgbj0Fx_ZKSATnTJAAU3Ca8M6D8964.png80x80.png" alt=""> <span>皓白</span></a>
-                                    <a href="" class="item selected"><img class="little_img" src="./img/Cgbj0Fx_ZMCAdyF9AAbOHZSdVO8974.png80x80.png" alt=""> <span>黑耀蓝</span></a>
+                                    <a href="" class="item"><img class="little_img" src="./img/Cgbj0Fx_ZKSATnTJAAU3Ca8M6D8964.png80x80.png" alt=""> <span>皓白</span></a>
+                                    <a href="" class="item"><img class="little_img" src="./img/Cgbj0Fx_ZMCAdyF9AAbOHZSdVO8974.png80x80.png" alt=""> <span>黑耀蓝</span></a>
                                 </div>
                         </div>
                         <div class="model"> 
@@ -151,7 +151,9 @@
                                     <span class="disabled">-</span><input type="text" value="1"><span>+</span>
                                 </div>
                         </div>
-                        <div></div>
+                        <div class="buy_box">
+                            <a href="" class="instanbuy">立即购买</a><a href="" class="inshopcart">加入购物车</a>
+                        </div>
                     </div>
             </div>
            
@@ -164,6 +166,12 @@
             </div>
         </div>
     </section>
-    <footer></footer>
+    <footer id="footer-main"></footer>
+    <script src="js/ajax.js"></script>
+    <script src="js/product_details.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
 </body>
 </html>
