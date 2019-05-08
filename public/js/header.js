@@ -176,6 +176,7 @@
                 else
                 this.val=this.tips[this.now].pname
             },
+          
         },
         watch:{
             val(){
@@ -184,6 +185,11 @@
                 this.val_self=this.val//按上下箭头的值不保存
             }
         },
+        mounted:function(){
+            //页面刷新后回到顶部
+            window.scrollTo(0,0)
+        }
+      
     })
     //失去焦点和获取焦点时，提示信息列表的显示和隐藏
     var input=document.querySelector(".box_right .search input")
