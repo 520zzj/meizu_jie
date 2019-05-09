@@ -239,6 +239,7 @@ INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"透明","
 INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"黑色","http://127.0.0.1:9000/img/1451459052-28689.png","//127.0.0.1:9000/img/Cgbj0Ft7iV6AQANcAAL00J0tbyQ152.png@480x480.jpg",13);
 INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"白色","http://127.0.0.1:9000/img/Cgbj0Fw8RZKAZoWmAAAJazF5kdU895.png","//127.0.0.1:9000/img/1458617159-29477.png@480x480.jpg",14);
 
+#商品详情，花呗分期
 
 
 
