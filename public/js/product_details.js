@@ -134,22 +134,36 @@
 (()=>{
       ajax({
         method:"get",
-        url:"http://127.0.0.1:9000/prodetails/huabei",
+        url:"http://127.0.0.1:9000/prodetails",
         dataType:"json"
       }).then(res=>{
-        console.log(res)
-        var html=""
+        //console.log(res)
+       
+        var div=document.querySelector(".huabei .model_right")
         var save=document.querySelectorAll("[data-prop=save]")
         for(let item of save){
             item.addEventListener("click",function(e){
+                var html=""
               if(this.innerHTML=="4+64G"){
-              //   for(var v of res){
-              //     html+=`<a href="" class="item" data-click="item">
-              //     <span class="periods">${v.periods}</span>
-              //     <span class="rate">${v.rate}</span>
-              //  </a>`
-              //   }
-              
+                for(var v of res){
+                    if(v.sid=="1"){
+                        html+=`<a href="" class="item" data-click="item">
+                        <span class="periods">${v.periods}</span>
+                        <span class="rate">${v.rate}</span>
+                     </a>`
+                    }
+                }
+                div.innerHTML=html
+              }else{
+                  for(var v of res){
+                     if(v.sid==2){
+                        html+=`<a href="" class="item" data-click="item">
+                        <span class="periods">${v.periods}</span>
+                        <span class="rate">${v.rate}</span>
+                     </a>`
+                     }
+                  }
+                  div.innerHTML=html
               }
             })
         }
@@ -157,4 +171,34 @@
 
       })
    
+})();
+//添加和减少购买数量
+(()=>{
+    var less=document.querySelector("[data-btn=less]")
+    var add=document.querySelector("[data-btn=add]")
+    less.addEventListener("click",function(){
+        var n=parseInt(this.nextElementSibling.value)
+        n--
+        if(n>=1){
+            this.nextElementSibling.value=n
+        }
+        if(n<10&&add.classList.contains("disabled")){
+            add.classList.remove("disabled")
+        }
+        if(n==1){
+            less.classList.add("disabled")
+        }
+    })
+    add.addEventListener("click",function(){
+        var n=parseInt(this.previousElementSibling.value)
+        n++
+        if(n<=10){
+            this.previousElementSibling.value=n
+        }else{
+            this.classList.add("disabled")
+        }
+        if(n>1&&less.classList.contains("disabled")){
+            less.classList.remove("disabled")
+        }
+    })
 })();
