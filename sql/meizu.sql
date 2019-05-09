@@ -240,6 +240,22 @@ INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"黑色","
 INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"白色","http://127.0.0.1:9000/img/Cgbj0Fw8RZKAZoWmAAAJazF5kdU895.png","//127.0.0.1:9000/img/1458617159-29477.png@480x480.jpg",14);
 
 #商品详情，花呗分期
+CREATE TABLE product_details(
+    id INT PRIMARY key not null AUTO_INCREMENT,
+    periods VARCHAR(30),
+    rate VARCHAR(30),
+    sid INT
+);
+INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥466.00×3期","免费手续",1);
+INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥233.00×6期","免费手续",1);
+INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥125.23×12期","含手续费 ￥8.73/期",1);
+INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥532.66×3期","免费手续",2);
+INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥266.33×6期","免费手续",2);
+INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥143.14×12期","含手续费 ￥9.98/期",2);
+INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥532.66×3期","免费手续",3);
+INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥266.33×6期","免费手续",3);
+INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥143.14×12期","含手续费 ￥9.98/期",3);
+
 
 
 
