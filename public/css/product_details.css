@@ -88,6 +88,7 @@ section{
     color:#BFBFBF;
 }
 /* 右半部分 */
+
 .details_box .details_box_right .props{
     padding-top: 50px;
     margin-bottom: 10px;
@@ -376,6 +377,38 @@ div.fastfloat{
     left:0;
     z-index:20;
     background: rgba(246, 248, 251,0.7);
+}
+/* 登录提示 */
+.log_tip{
+    position: fixed;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    width:330px;
+    height:140px;
+    background: #ffffff;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px 0px gray;
+    display: none;
+}
+.log_tip .log_tip_box{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+.log_tip .already{
+    margin-bottom:10px;
+}
+.log_tip .logafter{
+    font-size:12px;
+    color:#595959;
+    margin-bottom: 10px;
+}
+.log_tip .golog{
+    color: #000000;
+    font-size: 13px;
 }
 
 
