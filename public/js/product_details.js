@@ -202,3 +202,15 @@
         }
     })
 })();
+//登录提示
+(()=>{
+  var inshopcart=document.querySelector("[data-in=shopcart]")
+  var logTip=document.querySelector("[data-log=tip]")
+  inshopcart.addEventListener("click",function(e){
+    e.preventDefault()
+    logTip.style.display="block"
+    var t=setTimeout(()=>{
+      logTip.style.display="none"
+    },2000)
+  })
+})();
