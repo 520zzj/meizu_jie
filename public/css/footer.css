@@ -181,7 +181,7 @@
 .foot>.foot_container>.foot_bottom>.foot_bottom_right>div:nth-child(2){
     width:150px;
     height:150px;
-    background-image: url("../img/33474117-9a2d-455d-a8ff-997355238400.jpg");
+    background-image: url("//127.0.0.1:9000/img/33474117-9a2d-455d-a8ff-997355238400.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     position: absolute; 
