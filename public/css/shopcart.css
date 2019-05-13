@@ -96,6 +96,8 @@
     width:1240px;
     padding:0 20px;
     margin:0 auto;
+    margin-top:10px;
+    margin-bottom: 20px;
 }
 .cart .pro_container .col{
     display: flex;
@@ -103,6 +105,7 @@
     font-size: 14px;
     color:rgba(51,51,51,.4);
     text-align: center;
+    border-bottom: 1px solid #DBDBDB;
 }
 .cart .pro_container  .col-choose{
     width:530px;
@@ -146,10 +149,37 @@
     background-size: 100%;
     border:none;
 }
+/* 一个商品 */
+.cart .pro_container .one_pro{
+    border-bottom: 1px solid #DBDBDB;
+}
+.cart .pro_container .one_pro:last-child{
+    border:none;
+}
+/* 加价购 */
+.cart .pro_container .one_pro .add{
+   padding-top: 20px;
+   font-size: 12px;
+}
+.cart .pro_container .one_pro .add .add_sign{
+    border:1px solid #E02B41;
+    padding:1px 12px;
+    color:#E02B41;
+    border-radius: 2px;
+}
+.cart .pro_container .one_pro .add .add_amount{
+    color: #595959;
+    margin-left:20px;
+    margin-right: 10px;
+}
+.cart .pro_container .one_pro .add .add_now{
+    color:#00c3f5;
+}
 .cart .pro_container .favourable{
     display: flex;
     align-items: center;
     padding:20px 0;
+    border-bottom: 1px solid #DBDBDB;
 }
 .cart .pro_container .favourable .add_buy_box{
     padding-left:30px;
@@ -223,6 +253,10 @@
     color:#e02b41;
 }
 /* 底部结算栏 */
+.cart .collect{
+    width:1240px;
+    margin:0 auto;
+}
 .cart .del_all_container{
     width:1240px;
     margin:0 auto;
@@ -231,6 +265,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+/* 浮动起来时的样式 */
+.cart .scrollFloat{
+    position: fixed;
+    bottom:0px;
+    left:0;
+    right:0;
+    width:100%;
 }
 .cart .del_all_container .payment_left{
     display: flex;
@@ -283,8 +325,89 @@
     font-size: 20px;
     font-weight: bold;
 }
+/* 侧边栏 */
+.nav_side{
+    position: fixed;
+    bottom:100px;
+    right:0px;
+    color:#ffffff;
+    cursor:pointer;
+    display: none;
+}
+.nav_side .opa{
+    opacity: 0.6;
+}
+.nav_side .app{
+    position: absolute;
+    background: #A39A9A;
+    width:50px;
+    height:50px;
+    text-align: center;
+    line-height: 50px;
+    top:-52px;
+    right:0px;
+}
 
+.nav_side .app .download_app_box{
+    position: absolute;
+    width:150px;
+    height:180px;
+    overflow: hidden;
+    left:-150px;
+    top:-130px;
+}
+.nav_side .app .download_app{
+    position: absolute;
+    width:150px;
+    height:180px;
+    background: #A39A9A;
+    top:180px;
+    font-size: 12px;
+    background-image: url("//127.0.0.1:9000/img/33474117-9a2d-455d-a8ff-997355238400.jpg");
+    background-repeat: no-repeat;
+    background-size: 134px;
+    background-position: center 8px;
+    transition: all .3s linear;
+}
 
+.nav_side .app .download_app p{
+    position: absolute;
+    bottom:8px;
+    line-height: 20px;
+    width:134px;
+    left:8px;
+}
+.nav_side .toTop{
+    position: relative;
+    width:120px;
+    height:50px;
+    background: #A39A9A;
+    line-height: 50px;
+    padding-left: 53px;
+    font-size:12px;
+    right:-70px;
+    transition: all .3s linear;
+}
+.nav_side .toTop::before{
+    position: absolute;
+    content:"";
+    left:11px;
+    top:4px;
+    border-bottom: 14px solid #ffffff;
+    border-top:14px solid transparent;
+    border-left:14px solid transparent;
+    border-right:14px solid transparent;
+}
+.nav_side .toTop::after{
+    position: absolute;
+    content:"";
+    left:11px;
+    top:8px;
+    border-bottom: 14px solid #A39A9A;
+    border-top:14px solid transparent;
+    border-left:14px solid transparent;
+    border-right:14px solid transparent;
+}
 
 
 
