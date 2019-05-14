@@ -10,6 +10,7 @@ const login=require("./routes/login_router")
 const register=require("./routes/register_router")
 const productlist=require("./routes/productList_router")
 const prodetails=require("./routes/productdetails_router")
+const shopcart=require("./routes/shopcart_router")
 var app=express();
 var server=app.listen(9000);
 app.use(session({//配置session
@@ -35,3 +36,4 @@ app.use("/login",login)
 app.use("/register",register)
 app.use("/productlist",productlist)
 app.use("/prodetails",prodetails)
+app.use("/shopcart",shopcart)
