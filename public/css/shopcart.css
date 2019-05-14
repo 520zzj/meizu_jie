@@ -254,13 +254,12 @@
 }
 /* 底部结算栏 */
 .cart .collect{
-    width:1240px;
+    width:1200px;
     margin:0 auto;
 }
 .cart .del_all_container{
-    width:1240px;
+    width:1200px;
     margin:0 auto;
-    padding:0px 20px;
     height:70px;
     display: flex;
     justify-content: space-between;
@@ -332,7 +331,9 @@
     right:0px;
     color:#ffffff;
     cursor:pointer;
-    display: none;
+    /* display: none; */
+    width:50px;
+    height:102px;
 }
 .nav_side .opa{
     opacity: 0.6;
@@ -344,18 +345,19 @@
     height:50px;
     text-align: center;
     line-height: 50px;
-    top:-52px;
     right:0px;
 }
 
 .nav_side .app .download_app_box{
     position: absolute;
     width:150px;
-    height:180px;
+    /* height:180px; */
+    height: 0px;
     overflow: hidden;
     left:-150px;
-    top:-130px;
+    bottom:0px;
 }
+
 .nav_side .app .download_app{
     position: absolute;
     width:150px;
@@ -378,7 +380,7 @@
     left:8px;
 }
 .nav_side .toTop{
-    position: relative;
+    position: absolute;
     width:120px;
     height:50px;
     background: #A39A9A;
@@ -386,6 +388,7 @@
     padding-left: 53px;
     font-size:12px;
     right:-70px;
+    top:52px;   
     transition: all .3s linear;
 }
 .nav_side .toTop::before{
@@ -408,6 +411,78 @@
     border-left:14px solid transparent;
     border-right:14px solid transparent;
 }
+/* 删除商品的提示 */
+.del_tip{
+    position: fixed;
+    left:0px;
+    right:0px;
+    top:0px;
+    bottom:0px;
+    background: rgba(214,214,214,0.6);
+    display: none;
+}
+.del_tip .del_box{
+    width:500px;
+    height:240px;
+    background: #ffffff;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 3px;
+    text-align: center;
+}
+.del_tip .del_box .del_title{
+    font-weight: bold;
+    margin-top: 20px;
+}
+.del_tip .del_box .del_que{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    color:#999;
+}
+.del_tip .del_box .del_btn_box{
+    position: absolute;
+    left:50%;
+    transform: translatex(-50%);
+    bottom:30px;
+    display: flex;
+    justify-content: center;
+}
+.del_tip .del_box .del_btn_box .del_btn{
+    display: block;
+    width:100px;
+    height:36px;
+    text-align: center;
+    line-height: 36px;
+    cursor:pointer;
+}
+.del_tip .del_box .del_btn_box .del_btn_cancel{
+    border-radius: 3px;
+    background: #00c3f5;
+    color:#ffffff;
+    margin-left:10px;
+}
+.del_tip .del_box .del_btn_box .del_btn_del{
+    margin-right:10px;
+    color:#999;
+}
+.del_tip .del_box .cancel_icon{
+    display: block;
+    width:30px;
+    height:30px;
+    font-size: 25px;
+    color:#999;
+    position: absolute;
+    top:10px;
+    right:10px;
+    text-align: center;
+    line-height: 30px;
+    cursor:pointer;
+}
+
 
 
 
