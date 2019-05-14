@@ -30,11 +30,11 @@
         </div>
     </header>
     <section class="cart">
-        <div class="log_tip">
+        <div class="log_tip" data-toggle="logTip">
             <i class="tip_icon">i</i>
             <span> 您还没有登录！登录后可显示您账号中已加入的商品哦~</span>
             <a href="" class="tip_btn">去登录</a>
-            <span class="off">X</span>
+            <span class="off" data-toggle="off">X</span>
         </div>
         <div class="pro_container mybgcolor" data-toggle="scroll">
             <ul class="col">
@@ -47,7 +47,7 @@
                 <li class="col-price">单价(元)</li>
                 <li class="col-mount">数量</li>
                 <li class="col-subtotal">小计(元)</li>
-                <li class="col-edit col_last">编辑</li>
+                <li class="col-edit col_last" data-toggle="edit">编辑</li>
             </ul>
             <div class="favourable">
                     <div class="choose_box">
@@ -60,7 +60,8 @@
                         <!-- <span class="fare">已免运费</span> -->
                     </div>
             </div>
-            <div class="one_pro">
+            <div class="pro_box">
+<!-- <div class="one_pro">
                 <div class="add">
                     <span class="add_sign">加价购</span>
                     <span class="add_amount">另加15元起，即可换购超值商品</span>
@@ -95,8 +96,10 @@
                         </li>
                     </ul>
                 </div>
+            </div> -->
+            <!-- <div class="one_pro">
             </div>
-            <div class="one_pro">
+            
                 <div class="add">
                         <span class="add_sign">加价购</span>
                         <span class="add_amount">另加15元起，即可换购超值商品</span>
@@ -203,7 +206,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+            </div> -->
         </div>
         <div class="collect mybgcolor"  data-toggle="pay">
                 <div class="del_all_container">
@@ -233,6 +236,16 @@
                 </div>
             </div>
             <div class="toTop opa" data-toggle="toTop">回到顶部</div>
+        </div>
+        <div class="del_tip" data-del="tip">
+            <div class="del_box">
+                <h3 class="del_title">删除</h3>
+                <p class="del_que">您确定要删除该商品吗？</p>
+                <div class="del_btn_box">
+                    <span class="del_btn del_btn_del" data-btn="del">删除</span><span class="del_btn del_btn_cancel" data-btn="cancel">取消</span>
+                </div>
+                <span class="cancel_icon">x</span>
+            </div>
         </div>
     </section>
     <footer id="footer-main"></footer>
