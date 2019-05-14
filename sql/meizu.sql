@@ -256,8 +256,19 @@ INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥532.66×3期","
 INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥266.33×6期","免费手续",3);
 INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥143.14×12期","含手续费 ￥9.98/期",3);
 
-
-
+CREATE TABLE shopcart(
+    id INT PRIMARY key not NULL AUTO_INCREMENT,
+    img_src VARCHAR(100),
+    pname VARCHAR(20),
+    props VARCHAR(50),
+    unitprice DECIMAL(6,2),
+    amount INT,
+    subtotal DECIMAL(10,2)
+);
+INSERT INTO shopcart(id,img_src,pname,props,unitprice,amount,subtotal) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@120x120.png","魅族 Note9","全网通公开版 幻黑 4+64GB",1598.00,1,1598.00);
+INSERT INTO shopcart(id,img_src,pname,props,unitprice,amount,subtotal) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@120x120.png","魅族 16th","全网通公开版 幻黑 4+64GB",1598.00,1,1598.00);
+INSERT INTO shopcart(id,img_src,pname,props,unitprice,amount,subtotal) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@120x120.png","魅族 8x","全网通公开版 幻黑 4+64GB",1598.00,1,1598.00);
+INSERT INTO shopcart(id,img_src,pname,props,unitprice,amount,subtotal) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@120x120.png","魅族 Note8","全网通公开版 幻黑 4+64GB",1598.00,1,1598.00);
 
 
 
