@@ -147,88 +147,23 @@
         })();
         //编辑/完成,删除商品
         (function(){
-            var lis=document.querySelectorAll(".list_item .col-edit")
-        //如何在页面刷新后，给商品从新绑定点击事件？
-            console.log(lis)
-        //删除单个商品
-        //获取删除确认框元素
-        var delTip=document.querySelector("[data-del=tip]")
-            //确认框的操作 
-            //获取确认框删除和取消按钮元素
-            var btnDel=document.querySelector("[data-btn=del]")
-            var btnCancel=document.querySelector("[data-btn=cancel]")
-            //给每个商品绑定点击事件
-        for(let li of lis){
-            li.children[0].addEventListener("click",function(){
-                //当编辑列内容为x的时候才执行点击事件
-                if(li.children[0].innerHTML=="x"){
-                    //先弹出确认删除确认框
-                    delTip.style.display="block"
-                    //点击删除按钮
-                    btnDel.addEventListener("click",function(){
-                    //获取该商品的id,发送ajax请求,删除该商品，并刷新页面
-                        var id=li.children[0].dataset.id    
-                        ajax({
-                            method:"get",
-                            url:"http://127.0.0.1:9000/shopcart/delete",
-                            dataType:"json",
-                            data:"id="+id
-                        }).then(res=>{
-                            //删除商品后，刷新商品
-                            ajax({
-                                method:"get",
-                                url:"http://127.0.0.1:9000/shopcart",
-                                dataType:"json"
-                            }).then(result=>{
-                            //确认框隐藏
-                            delTip.style.display="none"
-                            //刷新商品
-                            loadhtml(result);
-                            //刷新商品列表后，依然是可删除状态，可以继续删除其他商品
-                            //获取dom树重绘后的x或--对应的元素，否则无法获取更新后的x或--
-                            lis=document.querySelectorAll(".list_item .col-edit")
-                            //让删除商品后依然保持x，可继续删除其余商品
-                            for(var li of lis){
-                            li.children[0].innerHTML="x"
-                            }
-                            // function taskx(lis){
-                            //     for(var  li of lis){
-                            //         li.children[0].innerHTML="x"
-                            //         console.log(1)
-                            //     }
-                            // }
-                            // var p=new Promise(function(resolve,reject){
-                            //     resolve();
-                            // })
-                            // p.then(loadhtml(result)).then(taskx(lis))
-                            })
-
-                        })
-                    })
-                }
-            })
-            
-        }
+            //把删除单个商品封装成函数，按照程序流程只执行一次，刷新商品后绑定事件丢失，lis也没有从新查找。所以在 函数里面从新调用了该函数。
+            function delsig(){
 
 
-        })();
-        //选择商品和没有选中切换
-        (function(){
-            //找出所有选择框
-            var boxs=document.querySelectorAll(".cart .checkbox")
-            //找出所有全选框
-            var selAll=document.querySelectorAll("[data-toggle=selAll]")
-            // 找出所有的非全选框
-            var sigleBoxs=document.querySelectorAll("[data-toggle=sigleBox]")
-            //把类数组对象转换成数组
-            sigleBoxs=Array.from(sigleBoxs)
-            for(let box of boxs){
-                box.addEventListener("click",function(){
-                    // if(box.classList.contains("checked")){
-                    //     box.classList.remove("checked")
-                    // }else{
-                    //     box.classList.add("checked")
-                    // }
+              //选择商品和没有选中切换
+            //   (function(){
+                //找出所有选择框
+                var boxs=document.querySelectorAll(".cart .checkbox")
+               console.log(boxs)
+                //找出所有全选框
+                var selAll=document.querySelectorAll("[data-toggle=selAll]")
+                // console.log(selAll)
+                // 找出所有的非全选框
+                var sigleBoxs=document.querySelectorAll("[data-toggle=sigleBox]")
+                //把类数组对象转换成数组
+                sigleBoxs=Array.from(sigleBoxs)
+                function  choose(){
                     //选上时，
                     //当前点击按钮如果是全选按钮，所有的按钮都选上，添加checked类
                     //否则仅仅当前按钮选上，添加checked类
@@ -238,6 +173,7 @@
                     //当非全选按钮都选上时，全选按钮也选上
                     if(!this.classList.contains("checked")){
                         if(this.dataset.toggle=="selAll"){
+                            console.log(boxs.length)
                             for(var i=0;i<boxs.length;i++){
                                 boxs[i].classList.add("checked")
                             }
@@ -265,12 +201,129 @@
                             sa.classList.add("checked")
                         }
                     }
-                  
-                })
-            }
-           
-        })();
+                
+                }
+                for(let box of boxs){
+                    box.addEventListener("click",choose)
+                }
+         
+            // })();
 
+            //获取含有x或--的元素的父元素
+            var lis=document.querySelectorAll(".list_item .col-edit")
+        //如何在页面刷新后，给商品从新绑定点击事件？        
+        //删除单个商品
+        //获取删除确认框元素
+            var delTip=document.querySelector("[data-del=tip]")
+            //确认框的操作 
+            //获取确认框删除和取消按钮元素
+            var btnDel=document.querySelector("[data-btn=del]")
+            var btnCancel=document.querySelector("[data-btn=cancel]")
+            //给每个商品绑定点击事件        
+                for(let li of lis){
+                    li.children[0].addEventListener("click",function(){
+                        //当编辑列内容为x的时候才执行点击事件
+                        if(li.children[0].innerHTML=="x"){
+                            //先弹出确认删除确认框
+                            delTip.style.display="block"
+                            //点击删除按钮,执行商品的删除
+                            btnDel.addEventListener("click",function(){
+                            //获取该商品的id,发送ajax请求,删除该商品，并刷新页面
+                                var id=li.children[0].dataset.id    
+                                ajax({
+                                    method:"get",
+                                    url:"http://127.0.0.1:9000/shopcart/delete",
+                                    dataType:"json",
+                                    data:"id="+id
+                                }).then(res=>{
+                                    //删除商品后，刷新商品
+                                    ajax({
+                                        method:"get",
+                                        url:"http://127.0.0.1:9000/shopcart",
+                                        dataType:"json"
+                                    }).then(result=>{
+                                    //确认框隐藏
+                                    delTip.style.display="none"
+                                    //刷新商品,局部刷新
+                                    loadhtml(result);
+                                   // 移除掉刷新之前商品绑定事件
+                                   for(var b of boxs){
+                                    b.removeEventListener("click",choose)
+                                }
+                                     //刷新商品列表后，依然是可删除状态，可以继续删除其他商品
+                                    //获取dom树重绘后的x或--对应的元素，否则无法获取更新后的x或--
+                                    lis=document.querySelectorAll(".list_item .col-edit")
+                                    //让删除商品后依然保持x，可继续删除其余商品
+                                    for(var li of lis){
+                                        li.children[0].innerHTML="x"
+                                    } 
+                                    delsig()
+                                    // function taskx(lis){
+                                    //     for(var  li of lis){
+                                    //         li.children[0].innerHTML="x"
+                                    //         console.log(1)
+                                    //     }
+                                    // }
+                                    // var p=new Promise(function(resolve,reject){
+                                    //     resolve();
+                                    // })
+                                    // p.then(loadhtml(result)).then(taskx(lis))
+                                    })
+
+                                })
+                            })
+                            //点击取消按钮，返回商品页面
+                            btnCancel.addEventListener("click",function(){
+                                delTip.style.display="none"
+                            })
+                        }
+                    })
+                    
+                }
+                
+            }
+            delsig();
+            //批量删除功能，点击“删除选中的商品"
+            (function(){
+                //找到“删除选中的商品”的元素,并绑定点击事件
+                var delMore=document.querySelector("[data-toggle=delMore]")
+                delMore.addEventListener("click",function(){
+                //找到选中的商品，即含有checked类的单选框，1是有checked类，2是有自定义属性data-toggle="sigleBox"
+                var selBoxs=document.querySelectorAll(".checked[data-toggle=sigleBox]")
+                //获取对应的商品id
+                var ids=""
+                for(var selBox of selBoxs){
+                    console.log(selBox.parentNode.parentNode.lastElementChild.children)
+                    ids+=selBox.parentNode.parentNode.lastElementChild.children[0].dataset.id+","
+                }
+                ids=ids.slice(0,ids.length-1)
+                console.log(ids)
+                //发送ajax请求，删除对应的商品
+                ajax({
+                    method:"get",
+                    url:"http://127.0.0.1:9000/shopcart/delMore",
+                    dataType:"json",
+                    data:"ids="+ids
+                }).then(res=>{
+                    console.log(res)
+                    //发送ajax请求，获取剩余商品，刷新页面
+                    ajax({
+                        method:"get",
+                        url:"http://127.0.0.1:9000/shopcart",
+                        dataType:"json"
+                    }).then(res=>{
+                        loadhtml(res);
+                        //这里刷新商品，前面的绑定商品的事件都没了，要重新绑定
+                        delsig();
+                    })
+                })
+                })
+            
+            })();
+
+        })();
+      
+      
     });
 
 })();
