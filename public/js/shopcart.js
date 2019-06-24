@@ -26,7 +26,7 @@
                     </li>
                     <li class="col-mount">
                         <div class="mount_box">
-                            <span class="disable">-</span><input type="text" value=${p.amount}><span>+</span>
+                            <span class="disable">-</span><input type="text" value=${p.amount} data-toggle="mount"><span>+</span>
                         </div>
                     </li>
                     <li class="col-subtotal"> 
@@ -209,10 +209,10 @@
          
             // })();
 
+            //删除单个商品
             //获取含有x或--的元素的父元素
             var lis=document.querySelectorAll(".list_item .col-edit")
         //如何在页面刷新后，给商品从新绑定点击事件？        
-        //删除单个商品
         //获取删除确认框元素
             var delTip=document.querySelector("[data-del=tip]")
             //确认框的操作 
@@ -322,7 +322,71 @@
             })();
 
         })();
-      
+
+
+        //点击按钮-和+控制商品的事件
+        //点击按钮数量发生变化，小计也随之数量发生变化
+        (function(){
+            //找出所有的购买数量所在元素
+            var inputs=document.querySelectorAll("[data-toggle=mount]")
+            for(let input of inputs){
+                //找出每个商品数量所在元素对应的小计所在元素
+                let subtotal=input.parentNode.parentNode.nextElementSibling.lastElementChild
+                //找出单价所在元素
+                let unipric=input.parentNode.parentNode.previousElementSibling.lastElementChild
+                //页面初始化的时候，判断商品数量，<=1时候-按钮就禁用，>=10时候+按钮就禁用
+                //给-绑定事件
+                 //-禁用情况
+                let n=parseInt(input.value)
+                //console.log(n)
+                if(n<=1){
+                    input.previousElementSibling.classList.add("disable")
+                }else if(n>1&&input.previousElementSibling.classList.contains("disable")){
+                    input.previousElementSibling.classList.remove("disable")
+                }
+                //+禁用情况
+                if(n>=10){
+                    input.nextElementSibling.classList.add("disable")
+                }else if(n<10&&input.nextElementSibling.classList.contains("disable")){
+                    input.nextElementSibling.classList.remove("disable")
+                }
+                //页面初始化的时候，确定购买数量和小计的关系
+                subtotal.innerHTML=n*parseFloat(unipric.innerHTML)
+                //给-添加事件
+                input.previousElementSibling.addEventListener("click",function(){
+                        //当n的值《=1时，n值不能再减少,并且-按钮禁用
+                        if(n<=1){
+                            this.classList.add("disable") 
+                            // console.log(1)       
+                            return;   
+                        //当n值>1时，n值减少，如果+按钮被禁用，取消禁用              
+                        }else{
+                            if(n==10)
+                            this.nextElementSibling.nextElementSibling.classList.remove("disable")
+                            n--
+                            this.nextElementSibling.value=n    
+                        }
+                        //小计跟随数量变化
+                        subtotal.innerHTML=n*parseFloat(unipric.innerHTML)
+                })
+                //给+添加事件
+                input.nextElementSibling.addEventListener("click",function(){
+                    //当n的值>=10的时候，n值不能再增加，并+按钮禁用
+                    if(n>=10){
+                        this.classList.add("disable")
+                        return;
+                    //当n的值<10的时候，n值增加，并且如果-按钮禁用，取消禁用
+                    }else{
+                        if(n==1)
+                        this.previousElementSibling.previousElementSibling.classList.remove("disable")
+                        n++
+                        this.previousElementSibling.value=n
+                    }
+                    //小计跟随数量变化
+                    subtotal.innerHTML=n*parseFloat(unipric.innerHTML)
+                })
+            }
+        })();
       
     });
 
