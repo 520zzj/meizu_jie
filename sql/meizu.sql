@@ -265,10 +265,10 @@ CREATE TABLE shopcart(
     amount INT,
     subtotal DECIMAL(10,2)
 );
-INSERT INTO shopcart(id,img_src,pname,props,unitprice,amount,subtotal) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@120x120.png","魅族 Note9","全网通公开版 幻黑 4+64GB",1598.00,1,1598.00);
+INSERT INTO shopcart(id,img_src,pname,props,unitprice,amount,subtotal) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@120x120.png","魅族 Note9","全网通公开版 幻黑 4+64GB",1598.00,3,1598.00);
 INSERT INTO shopcart(id,img_src,pname,props,unitprice,amount,subtotal) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@120x120.png","魅族 16th","全网通公开版 幻黑 4+64GB",1598.00,1,1598.00);
-INSERT INTO shopcart(id,img_src,pname,props,unitprice,amount,subtotal) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@120x120.png","魅族 8x","全网通公开版 幻黑 4+64GB",1598.00,1,1598.00);
-INSERT INTO shopcart(id,img_src,pname,props,unitprice,amount,subtotal) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@120x120.png","魅族 Note8","全网通公开版 幻黑 4+64GB",1598.00,1,1598.00);
+INSERT INTO shopcart(id,img_src,pname,props,unitprice,amount,subtotal) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@120x120.png","魅族 8x","全网通公开版 幻黑 4+64GB",1598.00,3,1598.00);
+INSERT INTO shopcart(id,img_src,pname,props,unitprice,amount,subtotal) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@120x120.png","魅族 Note8","全网通公开版 幻黑 4+64GB",1598.00,2,1598.00);
 
 
 
