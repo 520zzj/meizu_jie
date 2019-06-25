@@ -219,7 +219,7 @@
             //获取确认框删除和取消按钮元素
             var btnDel=document.querySelector("[data-btn=del]")
             var btnCancel=document.querySelector("[data-btn=cancel]")
-            //给每个商品绑定点击事件        
+            //给每个商品绑定点击删除单个商品的事件        
                 for(let li of lis){
                     li.children[0].addEventListener("click",function(){
                         //当编辑列内容为x的时候才执行点击事件
@@ -256,8 +256,11 @@
                                     //让删除商品后依然保持x，可继续删除其余商品
                                     for(var li of lis){
                                         li.children[0].innerHTML="x"
-                                    } 
-                                    delsig()
+                                    }
+                                    //页面刷新后，从新给商品绑定数量，单价关系
+                                    mouRel();
+                                    //刷新页面后，从新给商品绑定删除商品的事件 
+                                    delsig();
                                     // function taskx(lis){
                                     //     for(var  li of lis){
                                     //         li.children[0].innerHTML="x"
@@ -282,6 +285,7 @@
                 }
                 
             }
+            //调用删除单个商品的事件
             delsig();
             //批量删除功能，点击“删除选中的商品"
             (function(){
@@ -313,6 +317,8 @@
                         dataType:"json"
                     }).then(res=>{
                         loadhtml(res);
+                        //批量删除商品后，页面刷新了，也要从新给商品绑定数量和价格的关系
+                        mouRel();
                         //这里刷新商品，前面的绑定商品的事件都没了，要重新绑定
                         delsig();
                     })
@@ -323,10 +329,11 @@
 
         })();
 
-
+        
         //点击按钮-和+控制商品的事件
         //点击按钮数量发生变化，小计也随之数量发生变化
-        (function(){
+        //封装成函数
+        function mouRel(){
             //找出所有的购买数量所在元素
             var inputs=document.querySelectorAll("[data-toggle=mount]")
             for(let input of inputs){
@@ -386,8 +393,10 @@
                     subtotal.innerHTML=n*parseFloat(unipric.innerHTML)
                 })
             }
-        })();
-      
+        };
+        //初始化页面时，调用一次该函数
+        mouRel();
+        
     });
 
 })();
