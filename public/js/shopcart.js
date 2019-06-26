@@ -22,7 +22,7 @@
                         </div>
                     </li>
                     <li class="col-price">
-                        <em>￥</em><span>${p.unitprice}</span>
+                        <em>￥</em><span data-toggle="unipri">${p.unitprice}</span>
                     </li>
                     <li class="col-mount">
                         <div class="mount_box">
@@ -149,66 +149,6 @@
         (function(){
             //把删除单个商品封装成函数，按照程序流程只执行一次，刷新商品后绑定事件丢失，lis也没有从新查找。所以在 函数里面从新调用了该函数。
             function delsig(){
-
-
-              //选择商品和没有选中切换
-            //   (function(){
-                //找出所有选择框
-                var boxs=document.querySelectorAll(".cart .checkbox")
-               console.log(boxs)
-                //找出所有全选框
-                var selAll=document.querySelectorAll("[data-toggle=selAll]")
-                // console.log(selAll)
-                // 找出所有的非全选框
-                var sigleBoxs=document.querySelectorAll("[data-toggle=sigleBox]")
-                //把类数组对象转换成数组
-                sigleBoxs=Array.from(sigleBoxs)
-                function  choose(){
-                    //选上时，
-                    //当前点击按钮如果是全选按钮，所有的按钮都选上，添加checked类
-                    //否则仅仅当前按钮选上，添加checked类
-                    //取消时，
-                    //当前点击按钮如果是全选按钮，所有的按钮都取消，去掉checked类
-                    //否则去掉当前按钮和全选按钮上的checked类
-                    //当非全选按钮都选上时，全选按钮也选上
-                    if(!this.classList.contains("checked")){
-                        if(this.dataset.toggle=="selAll"){
-                            console.log(boxs.length)
-                            for(var i=0;i<boxs.length;i++){
-                                boxs[i].classList.add("checked")
-                            }
-                        }else{
-                            this.classList.add("checked")
-                        }
-                    }else{
-                        if(this.dataset.toggle=="selAll"){
-                            for(var i=0;i<boxs.length;i++){
-                                boxs[i].classList.remove("checked")
-                            }
-                        }else{
-                            this.classList.remove("checked")
-                            for(var j=0;j<selAll.length;j++){
-                                selAll[j].classList.remove("checked")
-                            }
-                        }
-                    }
-                    //非全选框都选上，即是都含有checked类时，全选框也选上
-                    var flag=sigleBoxs.every(function(elem,i,arr){
-                        return elem.classList.contains("checked")
-                    })
-                    if(flag){
-                        for(var sa of selAll){
-                            sa.classList.add("checked")
-                        }
-                    }
-                
-                }
-                for(let box of boxs){
-                    box.addEventListener("click",choose)
-                }
-         
-            // })();
-
             //删除单个商品
             //获取含有x或--的元素的父元素
             var lis=document.querySelectorAll(".list_item .col-edit")
@@ -247,9 +187,10 @@
                                     //刷新商品,局部刷新
                                     loadhtml(result);
                                    // 移除掉刷新之前商品绑定事件
+                                    var boxs=document.querySelectorAll(".cart .checkbox")
                                    for(var b of boxs){
-                                    b.removeEventListener("click",choose)
-                                }
+                                        b.removeEventListener("click",choose)
+                                   }
                                      //刷新商品列表后，依然是可删除状态，可以继续删除其他商品
                                     //获取dom树重绘后的x或--对应的元素，否则无法获取更新后的x或--
                                     lis=document.querySelectorAll(".list_item .col-edit")
@@ -257,8 +198,12 @@
                                     for(var li of lis){
                                         li.children[0].innerHTML="x"
                                     }
+                                    //页面刷新之后从新绑定选中框的逻辑关系
+                                    change(choose);
                                     //页面刷新后，从新给商品绑定数量，单价关系
                                     mouRel();
+                                    //删除单个商品刷新后，从新计算显示选中商品数量，总商品数量,总价
+                                    allChoAll();
                                     //刷新页面后，从新给商品绑定删除商品的事件 
                                     delsig();
                                     // function taskx(lis){
@@ -287,6 +232,7 @@
             }
             //调用删除单个商品的事件
             delsig();
+            
             //批量删除功能，点击“删除选中的商品"
             (function(){
                 //找到“删除选中的商品”的元素,并绑定点击事件
@@ -297,7 +243,6 @@
                 //获取对应的商品id
                 var ids=""
                 for(var selBox of selBoxs){
-                    console.log(selBox.parentNode.parentNode.lastElementChild.children)
                     ids+=selBox.parentNode.parentNode.lastElementChild.children[0].dataset.id+","
                 }
                 ids=ids.slice(0,ids.length-1)
@@ -317,8 +262,18 @@
                         dataType:"json"
                     }).then(res=>{
                         loadhtml(res);
+                        //找出所有选择框
+                       // 移除掉刷新之前商品绑定事件
+                       var boxs=document.querySelectorAll(".cart .checkbox")
+                       for(var b of boxs){
+                            b.removeEventListener("click",choose)
+                       }
+                       //从新绑定全选与单选的关系
+                       change(choose);
                         //批量删除商品后，页面刷新了，也要从新给商品绑定数量和价格的关系
                         mouRel();
+                        //删除多个商品刷新后，从新计算显示选中商品数量，总商品数量,总价
+                        allChoAll();
                         //这里刷新商品，前面的绑定商品的事件都没了，要重新绑定
                         delsig();
                     })
@@ -397,6 +352,109 @@
         //初始化页面时，调用一次该函数
         mouRel();
         
+        //结算栏处数字变化
+        function allChoAll(){
+            //找出选中的商品，即是含有checked类且含有data-toggle="sigleBox"的元素
+            //找出“共n商品”，“已选择n件”，“合计n元”处所在元素
+            //找出 购买数量，单价所在元素
+            var selBoxs=document.querySelectorAll(".checked[data-toggle=sigleBox]")
+            var allMount=document.querySelector("[data-toggle=all_mount]")
+            var choMou=document.querySelector("[data-toggle=choose_mount]")
+            var tolPri=document.querySelector("[data-toggle=totalPrice]")
+            var inputs=document.querySelectorAll("[data-toggle=mount]")
+            //找出“去结算”按钮所在元素
+            var btnPay=document.querySelector("[data-toggle=btnPay]")
+            //页面初始化时，显示共有多少件商品
+            //定义一个变量保存购买数量
+            var n=0
+            for(var input of inputs){
+                n+=parseInt(input.value)
+            }
+            allMount.innerHTML=n;
+            //定义保存选中商品数量的变量
+            var m=0
+            //定义保存总价的变量
+            var allPri=0
+            for(var selBox of selBoxs){
+                //把选中的各个商品的数量累计起来
+                m+=parseInt(selBox.parentNode.nextElementSibling.nextElementSibling.children[0].children[1].value)
+                //把选中的各个商品的总价累计起来
+                allPri+=parseInt(selBox.parentNode.nextElementSibling.nextElementSibling.children[0].children[1].value)*parseFloat(selBox.parentNode.parentNode.lastElementChild.previousElementSibling.children[1].innerHTML)
+            }
+            //把选中的总数量显示出来
+            choMou.innerHTML=m;
+            //把累计的总价显示出来
+            tolPri.innerHTML=allPri;
+            if(allPri!==0)
+            btnPay.classList.add("active")
+            else if(btnPay.classList.contains("active")&&allPri==0){
+                btnPay.classList.remove("active")
+            }
+            
+        };
+        allChoAll();
+
+        //选择商品和没有选中切换
+        function  choose(){
+            //找出所有选择框
+            var boxs=document.querySelectorAll(".cart .checkbox")
+            console.log(boxs)
+            //找出所有全选框
+            var selAll=document.querySelectorAll("[data-toggle=selAll]")
+            // console.log(selAll)
+            // 找出所有的非全选框
+            var sigleBoxs=document.querySelectorAll("[data-toggle=sigleBox]")
+            //把类数组对象转换成数组
+            sigleBoxs=Array.from(sigleBoxs)
+            //选上时，
+            //当前点击按钮如果是全选按钮，所有的按钮都选上，添加checked类
+            //否则仅仅当前按钮选上，添加checked类
+            //取消时，
+            //当前点击按钮如果是全选按钮，所有的按钮都取消，去掉checked类
+            //否则去掉当前按钮和全选按钮上的checked类
+            //当非全选按钮都选上时，全选按钮也选上
+            if(!this.classList.contains("checked")){
+                if(this.dataset.toggle=="selAll"){
+                    console.log(boxs.length)
+                    for(var i=0;i<boxs.length;i++){
+                        boxs[i].classList.add("checked")
+                    }
+                }else{
+                    this.classList.add("checked")
+                }
+            }else{
+                if(this.dataset.toggle=="selAll"){
+                    for(var i=0;i<boxs.length;i++){
+                        boxs[i].classList.remove("checked")
+                    }
+                }else{
+                    this.classList.remove("checked")
+                    for(var j=0;j<selAll.length;j++){
+                        selAll[j].classList.remove("checked")
+                    }
+                }
+            }
+            //非全选框都选上，即是都含有checked类时，全选框也选上
+            var flag=sigleBoxs.every(function(elem,i,arr){
+                return elem.classList.contains("checked")
+            })
+            if(flag){
+                for(var sa of selAll){
+                    sa.classList.add("checked")
+                }
+            }
+            //每次发生选择切换时，都计算并显示选中的商品的数量
+            allChoAll()
+        }
+        function change(choose){
+             //找出所有选择框
+             var boxs=document.querySelectorAll(".cart .checkbox")
+            for(let box of boxs){
+                box.addEventListener("click",choose)
+            }
+    
+        }
+        change(choose);
     });
 
 })();
