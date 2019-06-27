@@ -239,22 +239,34 @@ INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"透明","
 INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"黑色","http://127.0.0.1:9000/img/1451459052-28689.png","//127.0.0.1:9000/img/Cgbj0Ft7iV6AQANcAAL00J0tbyQ152.png@480x480.jpg",13);
 INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"白色","http://127.0.0.1:9000/img/Cgbj0Fw8RZKAZoWmAAAJazF5kdU895.png","//127.0.0.1:9000/img/1458617159-29477.png@480x480.jpg",14);
 
-#商品详情，花呗分期
+#商品详情
 CREATE TABLE product_details(
+    pid INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    pname VARCHAR(30),
+    pdesc VARCHAR(225),
+    price DECIMAL(6,2)
+);
+INSERT INTO product_details(pid,pname,pdesc,price) VALUES (1,"魅族 Note9","现货开售 | 骁龙675 后置4800万",1398.00);
+INSERT INTO product_details(pid,pname,pdesc,price) VALUES (2,"魅族 16th","【限时领券最高立减300】【6期免息】骁龙845 | 屏幕下指纹 | 前后2000万像素摄像头 | 6.0英寸屏幕 | 7.3mm纤薄机身 | 3倍无损变焦 | mEngine 触感引擎 | 超线性双扬声器 | 铜管散热",2298.00);
+
+#商品详情，花呗分期
+CREATE TABLE pro_det_huabei(
     id INT PRIMARY key not null AUTO_INCREMENT,
     periods VARCHAR(30),
-    rate VARCHAR(30),
+    rate VARCHAR(30), 
     sid INT
 );
-INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥466.00×3期","免费手续",1);
-INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥233.00×6期","免费手续",1);
-INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥125.23×12期","含手续费 ￥8.73/期",1);
-INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥532.66×3期","免费手续",2);
-INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥266.33×6期","免费手续",2);
-INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥143.14×12期","含手续费 ￥9.98/期",2);
-INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥532.66×3期","免费手续",3);
-INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥266.33×6期","免费手续",3);
-INSERT INTO product_details(id,periods,rate,sid) VALUES (null,"¥143.14×12期","含手续费 ￥9.98/期",3);
+INSERT INTO pro_det_huabei(id,periods,rate,sid) VALUES (null,"¥466.00×3期","免费手续",1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid) VALUES (null,"¥233.00×6期","免费手续",1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid) VALUES (null,"¥125.23×12期","含手续费 ￥8.73/期",1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid) VALUES (null,"¥532.66×3期","免费手续",2);
+INSERT INTO pro_det_huabei(id,periods,rate,sid) VALUES (null,"¥266.33×6期","免费手续",2);
+INSERT INTO pro_det_huabei(id,periods,rate,sid) VALUES (null,"¥143.14×12期","含手续费 ￥9.98/期",2);
+INSERT INTO pro_det_huabei(id,periods,rate,sid) VALUES (null,"¥532.66×3期","免费手续",3);
+INSERT INTO pro_det_huabei(id,periods,rate,sid) VALUES (null,"¥266.33×6期","免费手续",3);
+INSERT INTO pro_det_huabei(id,periods,rate,sid) VALUES (null,"¥143.14×12期","含手续费 ￥9.98/期",3);
+
+
 
 CREATE TABLE shopcart(
     id INT PRIMARY key not NULL AUTO_INCREMENT,
