@@ -53,6 +53,7 @@
         function loadProHtml(res){
             var htmli="",htmlo=""
             var arr=[]
+            // console.log(res.prolis)
             for(var p of res.prolis){
                 for(var c of res.color){
                     if(c.prolisId==p.pid){
@@ -69,7 +70,7 @@
                 }
                 if(p.psign==null){
                     htmlo+=`<li class="list_item" title='${p.pname}'>
-                    <a href="" class="list_link" data-link="a">
+                    <a href='http://127.0.0.1:5500/product_details.html?id=${p.pid}' class="list_link" data-link="a">
                         <img src="" alt="" data-link="0">
                         <ul class="pro_color" data-link="0">${htmli}</ul>
                         <h3 class="name" data-link="0">${p.pname}</h3>
@@ -82,7 +83,7 @@
                 </li>`
                 }else{
                     htmlo+=`<li class="list_item" title='${p.pname}'>
-                    <a href="" class="list_link" data-link="a">
+                    <a href='http://127.0.0.1:5500/product_details.html?id=${p.pid}' class="list_link" data-link="a">
                         <img src="" alt="" data-link="0">
                         <ul class="pro_color" data-link="0">${htmli}</ul>
                         <h3 class="name" data-link="0">${p.pname}</h3>
