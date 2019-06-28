@@ -120,6 +120,7 @@
           //先获取小图的地址
            var arr=data[j].litsrc
           // console.log(arr)
+          //显示小图
            for(var i=0;i<data[j].litsrc.length;i++){
              imgs[i].src=data[j].litsrc[i]
             // console.log(liImgs[i])
@@ -151,7 +152,7 @@
                 var html=""
               if(this.innerHTML=="4+64G"){
                 for(var v of res){
-                    if(v.sid=="1"){
+                    if(v.sid=="1"){ 
                         html+=`<a href="" class="item" data-click="item">
                         <span class="periods">${v.periods}</span>
                         <span class="rate">${v.rate}</span>

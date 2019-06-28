@@ -240,33 +240,66 @@ INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"黑色","
 INSERT INTO icon_color_src(iid,cname,csrc,psrc,prolisId) VALUES (null,"白色","http://127.0.0.1:9000/img/Cgbj0Fw8RZKAZoWmAAAJazF5kdU895.png","//127.0.0.1:9000/img/1458617159-29477.png@480x480.jpg",14);
 
 #商品详情
+#titleid表示面包屑导航的类型，1表示短，2表示长的
+#supid表示商品支持的类型，1表示支持顺丰，7天无理由退货；2表示支持花呗，顺丰，7天无理由退货
 CREATE TABLE product_details(
     pid INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     pname VARCHAR(30),
+    title VARCHAR(100),
     pdesc VARCHAR(225),
-    price DECIMAL(6,2)
+    price DECIMAL(6,2),
+    support VARCHAR(100),
+    model VARCHAR(250),
+    net VARCHAR(30),
+    intsto VARCHAR(30),
+    meal VARCHAR(30),
+    intro VARCHAR(500)
 );
-INSERT INTO product_details(pid,pname,pdesc,price) VALUES (1,"魅族 Note9","现货开售 | 骁龙675 后置4800万",1398.00);
-INSERT INTO product_details(pid,pname,pdesc,price) VALUES (2,"魅族 16th","【限时领券最高立减300】【6期免息】骁龙845 | 屏幕下指纹 | 前后2000万像素摄像头 | 6.0英寸屏幕 | 7.3mm纤薄机身 | 3倍无损变焦 | mEngine 触感引擎 | 超线性双扬声器 | 铜管散热",2298.00);
+INSERT INTO product_details(pid,pname,title,pdesc,price,support,model,net,intsto,meal,intro) VALUES (1,"魅族 Note9","概述，参数，常见问题","现货开售 | 骁龙675 后置4800万",1398.00," 花呗分期,百城速达,顺丰发货,7天无理由退货","魅族 Note9,魅族 16x,魅族 16th,魅族 16th Plus,魅族 16x,魅族 16xs","全网通公开版","4+64G,6+64G,4+128G","官方标配,碎屏保套餐","//127.0.0.1:9000/img/Cgbj0FzkqZ-ACI68AAZkyPcgldM490.jpg,//127.0.0.1:9000/img/Cgbj0VzkqaaAHU5eAAzk1h1g1fs959.jpg,//127.0.0.1:9000/img/Cgbj0FzkqamAA7rRAAi-ztz3jFc894.jpg,//127.0.0.1:9000/img/Cgbj0V0RedWAfcYsAAGSOMFxrWM388.jpg");
+INSERT INTO product_details(pid,pname,title,pdesc,price,support,model,net,intsto,meal,intro) VALUES (2,"魅族 16th","首页,概述,性能,相机,参数,常见问题","骁龙845 | 屏幕下指纹 | 前后2000万像素摄像头 | 6.0英寸屏幕 | 7.3mm纤薄机身 | 3倍无损变焦 | mEngine 触感引擎 | 超线性双扬声器 | 铜管散热",2298.00,"花呗分期,顺丰发货,7天无理由退货","魅族 16th,魅族 16x,魅族 Note9,魅族 16th Plus,魅族 16x,魅族 16xs","全网通公开版","6+64G,6+128G,8+128G","官方标配","//127.0.0.1:9000/img/Cgbj0VzkzMaAchqFAA1WRNyBlSw436.jpg,//127.0.0.1:9000/img/Cgbj0FzkzMyAanlXAAx4et1mBYA065.jpg,//127.0.0.1:9000/img/Cgbj0VzkzM6APMKKAAe9b-AhwXU852.jpg,//127.0.0.1:9000/img/Cgbj0FzkzNWAOBMyAAitutw8kXM569.jpg,//127.0.0.1:9000/img/Cgbj0VzkzNmAB59pAAlvcNR4zQQ730.jpg,//127.0.0.1:9000/img/Cgbj0V0RedWAfcYsAAGSOMFxrWM388.jpg");
 
+#商品详情，颜色分类
+CREATE TABLE pro_det_col(
+    cid INT,
+    little_img_src VARCHAR(100),
+    cname VARCHAR(10), 
+    cfid INT,
+    foreign key(cfid) references product_details(pid)
+);
+INSERT INTO pro_det_col(cid,little_img_src,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png80x80.png","幻黑",1);
+INSERT INTO pro_det_col(cid,little_img_src,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/./img/Cgbj0Fx_ZKSATnTJAAU3Ca8M6D8964.png80x80.png","皓白",1);
+INSERT INTO pro_det_col(cid,little_img_src,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Fx_ZMCAdyF9AAbOHZSdVO8974.png80x80.png","黑曜蓝",1);
+INSERT INTO pro_det_col(cid,little_img_src,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/Cgbj0FtqgnmAFgJPAAhgnScaoFg724.png80x80.png","极夜黑",2);
+INSERT INTO pro_det_col(cid,little_img_src,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/./img/Cgbj0VtqgmyADfzUAAdk_Uz-jKk371.png80x80.png","远山白",2);
+INSERT INTO pro_det_col(cid,little_img_src,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/Cgbj0FujRsOADooMAAbehLx6_Co899.png80x80.png","极光蓝",2);
 #商品详情，花呗分期
 CREATE TABLE pro_det_huabei(
     id INT PRIMARY key not null AUTO_INCREMENT,
     periods VARCHAR(30),
     rate VARCHAR(30), 
-    sid INT
+    sid INT,
+    hfid INT,
+    foreign key (hfid) references product_details(pid)
 );
-INSERT INTO pro_det_huabei(id,periods,rate,sid) VALUES (null,"¥466.00×3期","免费手续",1);
-INSERT INTO pro_det_huabei(id,periods,rate,sid) VALUES (null,"¥233.00×6期","免费手续",1);
-INSERT INTO pro_det_huabei(id,periods,rate,sid) VALUES (null,"¥125.23×12期","含手续费 ￥8.73/期",1);
-INSERT INTO pro_det_huabei(id,periods,rate,sid) VALUES (null,"¥532.66×3期","免费手续",2);
-INSERT INTO pro_det_huabei(id,periods,rate,sid) VALUES (null,"¥266.33×6期","免费手续",2);
-INSERT INTO pro_det_huabei(id,periods,rate,sid) VALUES (null,"¥143.14×12期","含手续费 ￥9.98/期",2);
-INSERT INTO pro_det_huabei(id,periods,rate,sid) VALUES (null,"¥532.66×3期","免费手续",3);
-INSERT INTO pro_det_huabei(id,periods,rate,sid) VALUES (null,"¥266.33×6期","免费手续",3);
-INSERT INTO pro_det_huabei(id,periods,rate,sid) VALUES (null,"¥143.14×12期","含手续费 ￥9.98/期",3);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥466.00×3期","免费手续",1,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥233.00×6期","免费手续",1,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥125.23×12期","含手续费 ￥8.73/期",1,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥532.66×3期","免费手续",2,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥266.33×6期","免费手续",2,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥143.14×12期","含手续费 ￥9.98/期",2,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥532.66×3期","免费手续",3,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥266.33×6期","免费手续",3,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥143.14×12期","含手续费 ￥9.98/期",3,1);
 
-
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥766.00×3期","免费手续",1,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥383.00×6期","免费手续",1,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥205.86×12期","含手续费 ￥14.36/期",1,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥866.00×3期","免费手续",2,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥433.33×6期","免费手续",2,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥232.73.14×12期","含手续费 ￥16.23/期",2,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥466.66×3期","免费手续",3,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥266.33×6期","免费手续",3,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥250.64×12期","含手续费 ￥17.48/期",3,1);
 
 CREATE TABLE shopcart(
     id INT PRIMARY key not NULL AUTO_INCREMENT,
