@@ -83,7 +83,7 @@
                 </li>`
                 }else{
                     htmlo+=`<li class="list_item" title='${p.pname}'>
-                    <a href='http://127.0.0.1:5500/product_details.html?id=${p.pid}' class="list_link" data-link="a">
+                    <a href='http://127.0.0.1:5500/product_details.html?pname=${p.pname}' class="list_link" data-link="a">
                         <img src="" alt="" data-link="0">
                         <ul class="pro_color" data-link="0">${htmli}</ul>
                         <h3 class="name" data-link="0">${p.pname}</h3>

@@ -1,5 +1,31 @@
 (function(){
-  //获取地址栏里的id,根据id来发送ajax请求，显示对应的商品
+  //获取地址栏里的name,根据name来发送ajax请求，显示对应的商品
+  //定义一个函数，来获取地址栏的id
+  function getQueryVariable(variable){
+    //window.location.search获取的是查询字符串，例如?id=1&name=lisi
+    //substring(1)截取字符串，从下标1开始到结束
+    var query=window.location.search.substring(1);
+    //id=1&name=lisi
+    var vars=query.split("&")
+    //["id=1","name=lisi"]
+    for(var i=0;i<vars.length;i++){
+      var pair=vars[i].split("=")
+      if(pair[0]==variable){return pair[1];}
+    }
+    return false;
+  }
+    //调用函数getQueryVariable来获取上个页面点击的商品的名称
+    var pname=decodeURI(getQueryVariable("pname"))
+    //发生ajax请求，获取该商品的信息
+    ajax({
+      method:"get",
+      url:"http://127.0.0.1:9000/prodetails/",
+      dataType:"json",
+      data:"pname="+pname
+    }).then(res=>{
+      console.log(res)
+    })
+
 })();
 
 (()=>{
@@ -140,7 +166,7 @@
 (()=>{
       ajax({
         method:"get",
-        url:"http://127.0.0.1:9000/prodetails",
+        url:"http://127.0.0.1:9000/prodetails/huabei",
         dataType:"json"
       }).then(res=>{
         //console.log(res)
