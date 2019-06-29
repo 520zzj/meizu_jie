@@ -258,20 +258,23 @@ CREATE TABLE product_details(
 INSERT INTO product_details(pid,pname,title,pdesc,price,support,model,net,intsto,meal,intro) VALUES (1,"魅族 Note9","概述，参数，常见问题","现货开售 | 骁龙675 后置4800万",1398.00," 花呗分期,百城速达,顺丰发货,7天无理由退货","魅族 Note9,魅族 16x,魅族 16th,魅族 16th Plus,魅族 16x,魅族 16xs","全网通公开版","4+64G,6+64G,4+128G","官方标配,碎屏保套餐","//127.0.0.1:9000/img/Cgbj0FzkqZ-ACI68AAZkyPcgldM490.jpg,//127.0.0.1:9000/img/Cgbj0VzkqaaAHU5eAAzk1h1g1fs959.jpg,//127.0.0.1:9000/img/Cgbj0FzkqamAA7rRAAi-ztz3jFc894.jpg,//127.0.0.1:9000/img/Cgbj0V0RedWAfcYsAAGSOMFxrWM388.jpg");
 INSERT INTO product_details(pid,pname,title,pdesc,price,support,model,net,intsto,meal,intro) VALUES (2,"魅族 16th","首页,概述,性能,相机,参数,常见问题","骁龙845 | 屏幕下指纹 | 前后2000万像素摄像头 | 6.0英寸屏幕 | 7.3mm纤薄机身 | 3倍无损变焦 | mEngine 触感引擎 | 超线性双扬声器 | 铜管散热",2298.00,"花呗分期,顺丰发货,7天无理由退货","魅族 16th,魅族 16x,魅族 Note9,魅族 16th Plus,魅族 16x,魅族 16xs","全网通公开版","6+64G,6+128G,8+128G","官方标配","//127.0.0.1:9000/img/Cgbj0VzkzMaAchqFAA1WRNyBlSw436.jpg,//127.0.0.1:9000/img/Cgbj0FzkzMyAanlXAAx4et1mBYA065.jpg,//127.0.0.1:9000/img/Cgbj0VzkzM6APMKKAAe9b-AhwXU852.jpg,//127.0.0.1:9000/img/Cgbj0FzkzNWAOBMyAAitutw8kXM569.jpg,//127.0.0.1:9000/img/Cgbj0VzkzNmAB59pAAlvcNR4zQQ730.jpg,//127.0.0.1:9000/img/Cgbj0V0RedWAfcYsAAGSOMFxrWM388.jpg");
 
-#商品详情，颜色分类
+#商品详情，颜色分类,保存小图地址和名称，中图地址，大图地址
 CREATE TABLE pro_det_col(
     cid INT,
     little_img_src VARCHAR(100),
+    midsrc VARCHAR(400),
+    bigsrc VARCHAR(400),
     cname VARCHAR(10), 
     cfid INT,
     foreign key(cfid) references product_details(pid)
 );
-INSERT INTO pro_det_col(cid,little_img_src,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png80x80.png","幻黑",1);
-INSERT INTO pro_det_col(cid,little_img_src,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/./img/Cgbj0Fx_ZKSATnTJAAU3Ca8M6D8964.png80x80.png","皓白",1);
-INSERT INTO pro_det_col(cid,little_img_src,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Fx_ZMCAdyF9AAbOHZSdVO8974.png80x80.png","黑曜蓝",1);
-INSERT INTO pro_det_col(cid,little_img_src,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/Cgbj0FtqgnmAFgJPAAhgnScaoFg724.png80x80.png","极夜黑",2);
-INSERT INTO pro_det_col(cid,little_img_src,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/./img/Cgbj0VtqgmyADfzUAAdk_Uz-jKk371.png80x80.png","远山白",2);
-INSERT INTO pro_det_col(cid,little_img_src,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/Cgbj0FujRsOADooMAAbehLx6_Co899.png80x80.png","极光蓝",2);
+INSERT INTO pro_det_col(cid,little_img_src,midsrc,bigsrc,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png80x80.png","//127.0.0.1:9000/img/Cgbj0Fx_ZLSAbkvCAAbf6BLA9aU577.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Fx_ZKaAHKKzAANLbi_Jh9A009.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZK2AeLuGAAOGkMdE1x4601.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Fx_ZK6AMuFWAAInES6rB6g430.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Fx_ZLSAbkvCAAbf6BLA9aU577.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Fx_ZKaAHKKzAANLbi_Jh9A009.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZK2AeLuGAAOGkMdE1x4601.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Fx_ZK6AMuFWAAInES6rB6g430.png680x680.jpg","幻黑",1);
+INSERT INTO pro_det_col(cid,little_img_src,midsrc,bigsrc,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/./img/Cgbj0Fx_ZKSATnTJAAU3Ca8M6D8964.png80x80.png","//127.0.0.1:9000/img/Cgbj0Vx_ZKWARDEYAAVfKZZCbL0565.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZJ-ABeyzAAFqjruDexM213.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZJ-AGraoAANnMTTdNJU462.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Fx_ZJ-AOKshAAIEsqI1Tts496.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZKWARDEYAAVfKZZCbL0565.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZJ-ABeyzAAFqjruDexM213.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZJ-AGraoAANnMTTdNJU462.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Fx_ZJ-AOKshAAIEsqI1Tts496.png680x680.jpg","皓白",1);
+INSERT INTO pro_det_col(cid,little_img_src,midsrc,bigsrc,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Fx_ZMCAdyF9AAbOHZSdVO8974.png80x80.png","//127.0.0.1:9000/img/Cgbj0Vx_ZMGAIQA1AAcF5QTOtV0207.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZLSAUAkdAANZKmXVu-g519.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Fx_ZLqAOAZ7AAN4onnA0GY381.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZLuADOmfAAI2auMhK38894.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZMGAIQA1AAcF5QTOtV0207.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZLSAUAkdAANZKmXVu-g519.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Fx_ZLqAOAZ7AAN4onnA0GY381.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZLuADOmfAAI2auMhK38894.png680x680.jpg","黑曜蓝",1);
+INSERT INTO pro_det_col(cid,little_img_src,midsrc,bigsrc,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/Cgbj0FtqgnmAFgJPAAhgnScaoFg724.png80x80.png","//127.0.0.1:9000/img/Cgbj0VtqgnWADjmlAAipoSE4bZM493.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Ftqgm2AQo8kAALoIW3dU5E207.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0FtqgnSAEr3VAARgym8YDgE000.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0VtqgnSAO5g5AAIM3cZJ03Y881.png120x120.jpg",,"极夜黑",2);
+INSERT INTO pro_det_col(cid,little_img_src,midsrc,bigsrc,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/./img/Cgbj0VtqgmyADfzUAAdk_Uz-jKk371.png80x80.png","//127.0.0.1:9000/img/Cgbj0FtqgmuAHzQbAAflWG0_wvs749.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0VtqgmaAHfhqAAFiPmKWlSs471.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0VtqgmaASQbXAAR4vsQCVjs385.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0FtqgmaAZbciAAIlAkUcoM0146.png120x120.jpg",,"远山白",2);
+INSERT INTO pro_det_col(cid,little_img_src,midsrc,bigsrc,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/Cgbj0FujRsOADooMAAbehLx6_Co899.png80x80.png","//127.0.0.1:9000/img/Cgbj0VujRsOANxDcAActMkyOOgg093.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0FujRryAHyYlAAFfDBvQEZQ725.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0FujRr2ADXdRAAU4Xd3yqgA872.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0VujRryAO9jRAAHTLhHAoF8836.png120x120.jpg",,"极光蓝",2);
+
 #商品详情，花呗分期
 CREATE TABLE pro_det_huabei(
     id INT PRIMARY key not null AUTO_INCREMENT,
