@@ -15,8 +15,8 @@ router.get("/",(req,res)=>{
    var sql=`select pid,pname,title,pdesc,price,support,model,net,intsto,meal,intro from product_details where pname=?`
    pool.query(sql,[pname],(err,result)=>{
       if(err) throw err;
-      res.send(result)
-      console.log(result)
+      if(result.length>0)
+      res.send(result[0])
    })
 })
 
