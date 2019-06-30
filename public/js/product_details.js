@@ -35,10 +35,15 @@
        </div>`
       var fastnav=document.querySelector("[data-toggle=fast_nav]")
       fastnav.innerHTML=htmlfast;
+      var htmlsup=''
+      var arrsup=res.support.split(/\,|\，/)
+      for(let item of arrsup){
+          htmlsup+=`<span><i class="success"></i>${item}</span>`
+      }
       var htmldetbox=`<div class="details_box_left">
       <div class="big_img_box"><img class="big_img" src="" alt=""></div>
       <ul class="little_img_box">
-          <li data-bigsrc="${1}"><a href="" class="little_img"><img data-toggle="img" src="" alt=""></a></li>
+          <li data-bigsrc=""><a href="" class="little_img"><img data-toggle="img" src="" alt=""></a></li>
       </ul>
       <div class="details_action_box">
           <ul class="details_action">
@@ -57,12 +62,12 @@
 </div>
 <div class="details_box_right">
   <div class="props">
-      <h3 class="name">魅族 Note9</h3>
-      <p class="desc">现货开售 | 骁龙675 后置4800万</p>
+      <h3 class="name">${res.pname}</h3>
+      <p class="desc">${res.pdesc}</p>
   </div>
   <div class="shell_box">
       <div class="price_box">
-          <em>￥</em><span class="price">1398.00</span>
+          <em>￥</em><span class="price">${res.price}</span>
       </div>
       <div class="add_buy_box">
           <span class="add_buy">加价购</span>
@@ -75,10 +80,7 @@
       <dl class="support">
           <dt class="dtwili_he">支持</dt>
           <dd class="ddlihe">
-              <span><i class="success"></i> 花呗分期</span>
-              <span><i class="success"></i> 百城速达</span>
-              <span><i class="success"></i> 顺丰发货</span>
-              <span><i class="success"></i> 7天无理由退货</span>
+             ${htmlsup}
           </dd>
       </dl>
       <dl class="support delivery">
@@ -109,7 +111,7 @@
   <div class="model"> 
           <span class="model_left">网络类型</span>
           <div class="model_right">
-              <a href="" class="item selected" data-click="item">全网络公开版</a>
+              <a href="" class="item selected" data-click="item">${res.net}</a>
           </div>
   </div>
   <div class="model"> 
