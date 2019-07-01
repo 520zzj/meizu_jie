@@ -24,26 +24,62 @@
       data:"pname="+pname
     }).then(res=>{
       console.log(res)
-      var arrfast=res.title.split(/\，|\,/)
+      console.log(res[1])
+      var arrfast=res[0].title.split(/\，|\,/)
       var htmlfasti=""
       for(var item of arrfast){
         htmlfasti+=`<li class="-item"><a href="" class="-link">${item}</a></li>`
       }
       var htmlfast=`<div class="fast_nav">
-      <span class="pro_name">${res.pname}</span>
+      <span class="pro_name">${res[0].pname}</span>
       <ul class="-ulist">${htmlfasti}</ul>
        </div>`
       var fastnav=document.querySelector("[data-toggle=fast_nav]")
       fastnav.innerHTML=htmlfast;
       var htmlsup=''
-      var arrsup=res.support.split(/\,|\，/)
+      var arrsup=res[0].support.split(/\,|\，/)
       for(let item of arrsup){
           htmlsup+=`<span><i class="success"></i>${item}</span>`
       }
+     
+     var date=new Date()
+     date.setDate(date.getDate()+2)
+     var htmlcolsort=""
+     for(let item of res[1]){
+        htmlcolsort+=`<a href="" class="item" data-click="item" data-type="color"><img class="little_img" src="${item.little_img_src}" alt="" > <span>${item.cname}</span></a>`
+     }
+     var midsrc=res[1][0].midsrc.split(/\,|\，/)
+     var bigsrc=res[1][0].bigsrc.split(/\,|\，/)
+     var htmlmidimg=""
+     for(let i=0;i<midsrc.length;i++){
+        htmlmidimg+=`<li data-bigsrc="${bigsrc[i]}"><a href="" class="mid_img"><img data-toggle="midimg" src="${midsrc[i]}" alt=""></a></li>`
+     }
+     //内存容量
+     var htmlintsto=""
+     var intsto=res[0].intsto.split(/\,|\，/)
+     for(let item of intsto){
+        htmlintsto+=`<a href="" class="item" data-click="item" data-prop="save">${item}</a>`
+     }
+     //花呗默认显示第一组数据
+     var htmlhuabei=""
+     for(let item of res[2]){
+        if(item.sid==0){
+          htmlhuabei+=`<a href="" class="item" data-click="item">
+          <span class="periods">${item.periods}</span>
+          <span class="rate">${item.rate}</span>
+       </a>`
+        }
+     }
+     //碎屏保护
+     var htmlmeal=""
+     var meal=res[0].meal.split(/\,|\，/)
+     for(let item of meal){
+        htmlmeal+=`<a href="" class="item" data-click="item" data-toggle="meal">${item}</a>`
+     }
       var htmldetbox=`<div class="details_box_left">
       <div class="big_img_box"><img class="big_img" src="" alt=""></div>
-      <ul class="little_img_box">
-          <li data-bigsrc=""><a href="" class="little_img"><img data-toggle="img" src="" alt=""></a></li>
+      <ul class="mid_img_box">
+         ${htmlmidimg}
       </ul>
       <div class="details_action_box">
           <ul class="details_action">
@@ -62,12 +98,12 @@
 </div>
 <div class="details_box_right">
   <div class="props">
-      <h3 class="name">${res.pname}</h3>
-      <p class="desc">${res.pdesc}</p>
+      <h3 class="name">${res[0].pname}</h3>
+      <p class="desc">${res[0].pdesc}</p>
   </div>
   <div class="shell_box">
       <div class="price_box">
-          <em>￥</em><span class="price">${res.price}</span>
+          <em>￥</em><span class="price">${res[0].price}</span>
       </div>
       <div class="add_buy_box">
           <span class="add_buy">加价购</span>
@@ -89,52 +125,45 @@
               <div class="address">广州市 越秀区 北京街道 <i class="dropdown">
                   <div></div>
               </i></div> 
-              <div class="reachtime"><span>24:00 前下单并支付，预计后天（4月18日）送达</span></div>
+              <div class="reachtime"><span>24:00 前下单并支付，预计后天（${date.getMonth()+1}月${date.getDate()}日）送达</span></div>
            </dd>
       </dl>
       <div class="online_serve_box">
           <span>本商品由 魅族 负责发货并提供售后服务
-              </span> <a href="" class="online_serve"><i class="icon_online   "></i><span>在线客服</span></a>
+              </span> <a href="" class="online_serve"><i class="icon_online"></i><span>在线客服</span></a>
       </div>
   </div>
    <div class="model model_first"> 
                   <span class="model_left">型号</span>
                   <div class="model_right">
-                      <a href="" class="item selected">魅族 Note9</a>
-                      <a href="" class="item">魅族 16th Plus</a>
-                      <a href="" class="item">魅族 16x</a>
-                      <a href="" class="item">魅族 v8 高配版</a>
-                      <a href="" class="item">魅族 x8</a>
-                      <a href="" class="item">魅族 16th</a>
+                      <a href="http://127.0.0.1:5500/product_details.html?pname=魅族 Note9" class="item" data-toggle="model">魅族 Note9</a>
+                      <a href="" class="item" data-toggle="model">魅族 16th Plus</a>
+                      <a href="" class="item" data-toggle="model">魅族 16x</a>
+                      <a href="" class="item" data-toggle="model">魅族 v8 高配版</a>
+                      <a href="" class="item" data-toggle="model">魅族 x8</a>
+                      <a href="http://127.0.0.1:5500/product_details.html?pname=魅族 16th" class="item" data-toggle="model">魅族 16th</a>
                   </div>
   </div>
   <div class="model"> 
           <span class="model_left">网络类型</span>
           <div class="model_right">
-              <a href="" class="item selected" data-click="item">${res.net}</a>
+              <a href="" class="item selected" data-click="item">${res[0].net}</a>
           </div>
   </div>
   <div class="model"> 
           <span class="model_left">颜色分类</span>
-          <div class="model_right" data-color="sort">
-              <a href="" class="item selected" data-click="item" data-type="color"><img class="little_img" src="//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png80x80.png" alt="" > <span>幻黑</span></a>
-              <a href="" class="item" data-click="item" data-type="color"><img class="little_img" src="./img/Cgbj0Fx_ZKSATnTJAAU3Ca8M6D8964.png80x80.png" alt=""> <span>皓白</span></a>
-              <a href="" class="item" data-click="item" data-type="color"><img class="little_img" src="./img/Cgbj0Fx_ZMCAdyF9AAbOHZSdVO8974.png80x80.png" alt=""> <span>黑耀蓝</span></a>
-          </div>
+          <div class="model_right" data-color="sort">${htmlcolsort}</div>
   </div>
   <div class="model"> 
       <span class="model_left">内存容量</span>
       <div class="model_right">
-          <a href="" class="item selected" data-click="item" data-prop="save">4+64G</a>
-          <a href="" class="item" data-click="item" data-prop="save">6+64G</a>
-          <a href="" class="item" data-click="item" data-prop="save">4+128G</a>
+         ${htmlintsto}
       </div>
   </div>
   <div class="model"> 
           <span class="model_left">选择套餐</span>
           <div class="model_right">
-              <a href="" class="item selected" data-click="item">官方标配</a>
-              <a href="" class="item" data-click="item">碎屏保套餐</a>
+             ${htmlmeal}
           </div>
   </div>
   <div class="model huabei"> 
@@ -142,18 +171,7 @@
                   <a href="" class="huabei_link"></a>
               </span>
               <div class="model_right">
-                  <a href="" class="item" data-click="item">
-                      <span class="periods">¥466.00×3期</span>
-                      <span class="rate">免续费</span>
-                   </a>
-                  <a href="" class="item" data-click="item">
-                      <span class="periods">¥233.00×6期</span>
-                      <span class="rate">免续费</span>
-                   </a>
-                  <a href="" class="item" data-click="item">
-                      <span class="periods">¥125.23×12期</span>
-                      <span class="rate">含手续费 ￥8.73/期</span>
-                   </a>
+                ${htmlhuabei}
               </div>
   </div>
   <div class="model"> 
@@ -175,9 +193,14 @@
 </div>`
       var detbox=document.querySelector("[data-details=box]")
       detbox.innerHTML=htmldetbox;
-
-
-
+      //商品图片形式介绍处
+      var htmlintro=""
+      var intro=res[0].intro.split(/\,|\，/)
+      for(let item of intro){
+        htmlintro+=`<img src="" alt="" data-origin="${item}">`
+      }
+      var introbox=document.querySelector("[data-lazy=img]")
+      introbox.innerHTML=htmlintro;
 
 
 
@@ -227,24 +250,39 @@
               navAside.style.display="none"
          }
       })();
+      //套餐处和型号处
+      (()=>{
+        //页面初始化时默认选中第一个套餐
+        var meals=document.querySelectorAll("[data-toggle=meal]")
+        meals[0].classList.add("selected")
+        //页面根据商品的名称跳转的，型号处默认选中的商品为地址栏跳转到的商品
+        //找出所有型号所在元素
+        var models=document.querySelectorAll("[data-toggle=model]")
+        for(let elem of models){
+          if(pname==elem.innerHTML){
+            elem.classList.add("selected")
+          }
+        }
+      })();
        //颜色分类点击高亮显示和图片切换
       (()=>{
         //创建一个数组，临时保存图片地址的数据
-        var data=[
-          {
-            litsrc:["//127.0.0.1:9000/img/Cgbj0Fx_ZLSAbkvCAAbf6BLA9aU577.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Fx_ZKaAHKKzAANLbi_Jh9A009.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZK2AeLuGAAOGkMdE1x4601.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Fx_ZK6AMuFWAAInES6rB6g430.png120x120.jpg"],
-            bigsrc:["//127.0.0.1:9000/img/Cgbj0Fx_ZLSAbkvCAAbf6BLA9aU577.png680x680.jpg","//127.0.0.1:9000/img/Cgbj0Fx_ZKaAHKKzAANLbi_Jh9A009.png680x680.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZK2AeLuGAAOGkMdE1x4601.png680x680.jpg","//127.0.0.1:9000/img/Cgbj0Fx_ZK6AMuFWAAInES6rB6g430.png680x680.jpg"]
-        },
-          {
-            litsrc:["//127.0.0.1:9000/img/Cgbj0Vx_ZKWARDEYAAVfKZZCbL0565.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZJ-ABeyzAAFqjruDexM213.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZJ-AGraoAANnMTTdNJU462.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Fx_ZJ-AOKshAAIEsqI1Tts496.png120x120.jpg"],
-            bigsrc:["//127.0.0.1:9000/img/Cgbj0Vx_ZKWARDEYAAVfKZZCbL0565.png680x680.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZJ-ABeyzAAFqjruDexM213.png680x680.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZJ-AGraoAANnMTTdNJU462.png680x680.jpg","//127.0.0.1:9000/img/Cgbj0Fx_ZJ-AOKshAAIEsqI1Tts496.png680x680.jpg"]
-          },
-          {
-            litsrc:["//127.0.0.1:9000/img/Cgbj0Vx_ZMGAIQA1AAcF5QTOtV0207.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZLSAUAkdAANZKmXVu-g519.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Fx_ZLqAOAZ7AAN4onnA0GY381.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZLuADOmfAAI2auMhK38894.png120x120.jpg"],
-            bigsrc:["//127.0.0.1:9000/img/Cgbj0Vx_ZMGAIQA1AAcF5QTOtV0207.png680x680.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZLSAUAkdAANZKmXVu-g519.png680x680.jpg","//127.0.0.1:9000/img/Cgbj0Fx_ZLqAOAZ7AAN4onnA0GY381.png680x680.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZLuADOmfAAI2auMhK38894.png680x680.jpg"]
-          }
-        ]
+        // var data=[
+        //   {
+        //     litsrc:["//127.0.0.1:9000/img/Cgbj0Fx_ZLSAbkvCAAbf6BLA9aU577.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Fx_ZKaAHKKzAANLbi_Jh9A009.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZK2AeLuGAAOGkMdE1x4601.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Fx_ZK6AMuFWAAInES6rB6g430.png120x120.jpg"],
+        //     bigsrc:["//127.0.0.1:9000/img/Cgbj0Fx_ZLSAbkvCAAbf6BLA9aU577.png680x680.jpg","//127.0.0.1:9000/img/Cgbj0Fx_ZKaAHKKzAANLbi_Jh9A009.png680x680.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZK2AeLuGAAOGkMdE1x4601.png680x680.jpg","//127.0.0.1:9000/img/Cgbj0Fx_ZK6AMuFWAAInES6rB6g430.png680x680.jpg"]
+        // },
+        //   {
+        //     litsrc:["//127.0.0.1:9000/img/Cgbj0Vx_ZKWARDEYAAVfKZZCbL0565.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZJ-ABeyzAAFqjruDexM213.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZJ-AGraoAANnMTTdNJU462.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Fx_ZJ-AOKshAAIEsqI1Tts496.png120x120.jpg"],
+        //     bigsrc:["//127.0.0.1:9000/img/Cgbj0Vx_ZKWARDEYAAVfKZZCbL0565.png680x680.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZJ-ABeyzAAFqjruDexM213.png680x680.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZJ-AGraoAANnMTTdNJU462.png680x680.jpg","//127.0.0.1:9000/img/Cgbj0Fx_ZJ-AOKshAAIEsqI1Tts496.png680x680.jpg"]
+        //   },
+        //   {
+        //     litsrc:["//127.0.0.1:9000/img/Cgbj0Vx_ZMGAIQA1AAcF5QTOtV0207.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZLSAUAkdAANZKmXVu-g519.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Fx_ZLqAOAZ7AAN4onnA0GY381.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZLuADOmfAAI2auMhK38894.png120x120.jpg"],
+        //     bigsrc:["//127.0.0.1:9000/img/Cgbj0Vx_ZMGAIQA1AAcF5QTOtV0207.png680x680.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZLSAUAkdAANZKmXVu-g519.png680x680.jpg","//127.0.0.1:9000/img/Cgbj0Fx_ZLqAOAZ7AAN4onnA0GY381.png680x680.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZLuADOmfAAI2auMhK38894.png680x680.jpg"]
+        //   }
+        // ]
         
+     
         //利用冒泡
         // var div=document.querySelector("[data-color=sort]")
         // div.addEventListener("click",function(e){
@@ -288,75 +326,71 @@
               bigImg.src=this.dataset.bigsrc
             })
          }
-         //页面初始化时，显示第一个颜色分类的第一张小图对应的大图
+         //页面初始化时，显示第一个颜色分类的第一张中图对应的大图
             bigImg.src=liImgs[0].dataset.bigsrc
-         //点击颜色分类，图片展示处切换不同的图片
-         var sortcolor=document.querySelectorAll("[data-type=color]")
+         //点击颜色分类即是小图，图片展示处切换不同的图片，即是中图切换
          //获取小图元素集合
-         var imgs=document.querySelectorAll("[data-toggle=img]")
+         var sortcolor=document.querySelectorAll("[data-type=color]")
+         //页面初始化，第一个小图出默认选中
+         sortcolor[0].classList.add("selected")
+         //获取中图元素集合
+         var imgs=document.querySelectorAll("[data-toggle=midimg]")
          for(let j=0;j<sortcolor.length;j++){
             sortcolor[j].addEventListener("click",function(){
                 //把小图的地址赋值给img的src属性，直接显示效果
                 //data[i].litsrc[j]
-                //先获取小图的地址
-                 var arr=data[j].litsrc
+                //先获取中图的地址
+                var arr=res[1][j].midsrc.split(/\,|\，/)
+                //  var arr=data[j].litsrc
                 // console.log(arr)
-                //显示小图
-                 for(var i=0;i<data[j].litsrc.length;i++){
-                   imgs[i].src=data[j].litsrc[i]
-                  // console.log(liImgs[i])
-                 }
+                //显示中图
+                for(let i=0;i<arr.length;i++){
+                  imgs[i].src=arr[i]
+                }
+                //  for(var i=0;i<data[j].litsrc.length;i++){
+                //    imgs[i].src=data[j].litsrc[i]
+                //   // console.log(liImgs[i])
+                //  }
                   //把大图的地址先存储在li的自定义属性data-bigsrc中
-                  var arr2=data[j].bigsrc
-                 for(var index=0;index<data[j].bigsrc.length;index++){
-                    liImgs[index].dataset.bigsrc=data[j].bigsrc[index]
-                    // console.log(data[j].bigsrc[index])
-                 }
-                 //每次切换，默认第一小图对应的大图显示
+                  var arr2=res[1][j].bigsrc.split(/\,|\，/)
+                  for(let i=0;i<arr2.length;i++){
+                    liImgs[i].dataset.bigsrc=arr2[i]
+                  }
+                //   var arr2=data[j].bigsrc
+                //  for(var index=0;index<data[j].bigsrc.length;index++){
+                //     liImgs[index].dataset.bigsrc=data[j].bigsrc[index]
+                //     // console.log(data[j].bigsrc[index])
+                //  }
+                 //每次切换，默认第一中图对应的大图显示
                  bigImg.src=liImgs[0].dataset.bigsrc
             })
          }
       })();
       //选择不同的内存大小，花呗分期不同
       (()=>{
-            ajax({
-              method:"get",
-              url:"http://127.0.0.1:9000/prodetails/huabei",
-              dataType:"json"
-            }).then(res=>{
-              //console.log(res)
-             
+              //获取花呗元素的父元素
               var div=document.querySelector(".huabei .model_right")
+              //找出存储所在元素，并给其绑定事件
               var save=document.querySelectorAll("[data-prop=save]")
-              for(let item of save){
-                  item.addEventListener("click",function(e){
-                      var html=""
-                    if(this.innerHTML=="4+64G"){
-                      for(var v of res){
-                          if(v.sid=="1"){ 
-                              html+=`<a href="" class="item" data-click="item">
-                              <span class="periods">${v.periods}</span>
-                              <span class="rate">${v.rate}</span>
-                           </a>`
-                          }
+              //第一个存储元素默认选中，
+              save[0].classList.add("selected")
+              for(let i=0;i<save.length;i++){
+                  save[i].addEventListener("click",function(){
+                     var htmlhuabei=""
+                     for(let item of res[2]){
+                      if(item.sid==i){
+                        htmlhuabei+=`<a href="" class="item" data-click="item">
+                        <span class="periods">${item.periods}</span>
+                        <span class="rate">${item.rate}</span>
+                     </a>`
                       }
-                      div.innerHTML=html
-                    }else{
-                        for(var v of res){
-                           if(v.sid==2){
-                              html+=`<a href="" class="item" data-click="item">
-                              <span class="periods">${v.periods}</span>
-                              <span class="rate">${v.rate}</span>
-                           </a>`
-                           }
-                        }
-                        div.innerHTML=html
-                    }
+                   }
+                    div.innerHTML=htmlhuabei
                   })
               }
       
       
-            })
+          
          
       })();
       //添加和减少购买数量

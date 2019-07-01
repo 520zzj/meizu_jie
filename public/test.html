@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var sql2=2
+        var sql1=1
+        function f1(){
+            var p1=new Promise(function(resolve,reject){
+            var t=setTimeout(()=>{
+                console.log(sql1)
+                resolve();
+            },5000)
+          
+        })
+        return p1;
+        }
+      
+        function f2(){
+            return new Promise(function(resolve,reject){
+                console.log(sql2)
+                resolve();
+            })
+        }
+        f1().then(f2)
+    </script>
+</body>
+</html>

@@ -269,10 +269,10 @@ CREATE TABLE pro_det_col(
     foreign key(cfid) references product_details(pid)
 );
 INSERT INTO pro_det_col(cid,little_img_src,midsrc,bigsrc,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png80x80.png","//127.0.0.1:9000/img/Cgbj0Fx_ZLSAbkvCAAbf6BLA9aU577.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Fx_ZKaAHKKzAANLbi_Jh9A009.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZK2AeLuGAAOGkMdE1x4601.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Fx_ZK6AMuFWAAInES6rB6g430.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Fx_ZLSAbkvCAAbf6BLA9aU577.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Fx_ZKaAHKKzAANLbi_Jh9A009.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZK2AeLuGAAOGkMdE1x4601.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Fx_ZK6AMuFWAAInES6rB6g430.png680x680.jpg","幻黑",1);
-INSERT INTO pro_det_col(cid,little_img_src,midsrc,bigsrc,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/./img/Cgbj0Fx_ZKSATnTJAAU3Ca8M6D8964.png80x80.png","//127.0.0.1:9000/img/Cgbj0Vx_ZKWARDEYAAVfKZZCbL0565.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZJ-ABeyzAAFqjruDexM213.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZJ-AGraoAANnMTTdNJU462.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Fx_ZJ-AOKshAAIEsqI1Tts496.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZKWARDEYAAVfKZZCbL0565.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZJ-ABeyzAAFqjruDexM213.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZJ-AGraoAANnMTTdNJU462.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Fx_ZJ-AOKshAAIEsqI1Tts496.png680x680.jpg","皓白",1);
+INSERT INTO pro_det_col(cid,little_img_src,midsrc,bigsrc,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Fx_ZKSATnTJAAU3Ca8M6D8964.png80x80.png","//127.0.0.1:9000/img/Cgbj0Vx_ZKWARDEYAAVfKZZCbL0565.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZJ-ABeyzAAFqjruDexM213.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZJ-AGraoAANnMTTdNJU462.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Fx_ZJ-AOKshAAIEsqI1Tts496.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZKWARDEYAAVfKZZCbL0565.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZJ-ABeyzAAFqjruDexM213.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZJ-AGraoAANnMTTdNJU462.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Fx_ZJ-AOKshAAIEsqI1Tts496.png680x680.jpg","皓白",1);
 INSERT INTO pro_det_col(cid,little_img_src,midsrc,bigsrc,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Fx_ZMCAdyF9AAbOHZSdVO8974.png80x80.png","//127.0.0.1:9000/img/Cgbj0Vx_ZMGAIQA1AAcF5QTOtV0207.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZLSAUAkdAANZKmXVu-g519.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Fx_ZLqAOAZ7AAN4onnA0GY381.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZLuADOmfAAI2auMhK38894.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0Vx_ZMGAIQA1AAcF5QTOtV0207.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZLSAUAkdAANZKmXVu-g519.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Fx_ZLqAOAZ7AAN4onnA0GY381.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Vx_ZLuADOmfAAI2auMhK38894.png680x680.jpg","黑曜蓝",1);
 INSERT INTO pro_det_col(cid,little_img_src,midsrc,bigsrc,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/Cgbj0FtqgnmAFgJPAAhgnScaoFg724.png80x80.png","//127.0.0.1:9000/img/Cgbj0VtqgnWADjmlAAipoSE4bZM493.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0Ftqgm2AQo8kAALoIW3dU5E207.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0FtqgnSAEr3VAARgym8YDgE000.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0VtqgnSAO5g5AAIM3cZJ03Y881.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0VtqgnWADjmlAAipoSE4bZM493.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0Ftqgm2AQo8kAALoIW3dU5E207.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0FtqgnSAEr3VAARgym8YDgE000.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0VtqgnSAO5g5AAIM3cZJ03Y881.png680x680.jpg","极夜黑",2);
-INSERT INTO pro_det_col(cid,little_img_src,midsrc,bigsrc,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/./img/Cgbj0VtqgmyADfzUAAdk_Uz-jKk371.png80x80.png","//127.0.0.1:9000/img/Cgbj0FtqgmuAHzQbAAflWG0_wvs749.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0VtqgmaAHfhqAAFiPmKWlSs471.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0VtqgmaASQbXAAR4vsQCVjs385.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0FtqgmaAZbciAAIlAkUcoM0146.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0FtqgmuAHzQbAAflWG0_wvs749.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0VtqgmaAHfhqAAFiPmKWlSs471.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0VtqgmaASQbXAAR4vsQCVjs385.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0FtqgmaAZbciAAIlAkUcoM0146.png680x680.jpg","远山白",2);
+INSERT INTO pro_det_col(cid,little_img_src,midsrc,bigsrc,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/Cgbj0VtqgmyADfzUAAdk_Uz-jKk371.png80x80.png","//127.0.0.1:9000/img/Cgbj0FtqgmuAHzQbAAflWG0_wvs749.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0VtqgmaAHfhqAAFiPmKWlSs471.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0VtqgmaASQbXAAR4vsQCVjs385.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0FtqgmaAZbciAAIlAkUcoM0146.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0FtqgmuAHzQbAAflWG0_wvs749.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0VtqgmaAHfhqAAFiPmKWlSs471.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0VtqgmaASQbXAAR4vsQCVjs385.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0FtqgmaAZbciAAIlAkUcoM0146.png680x680.jpg","远山白",2);
 INSERT INTO pro_det_col(cid,little_img_src,midsrc,bigsrc,cname,cfid) VALUES (null,"//127.0.0.1:9000/img/Cgbj0FujRsOADooMAAbehLx6_Co899.png80x80.png","//127.0.0.1:9000/img/Cgbj0VujRsOANxDcAActMkyOOgg093.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0FujRryAHyYlAAFfDBvQEZQ725.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0FujRr2ADXdRAAU4Xd3yqgA872.png120x120.jpg,//127.0.0.1:9000/img/Cgbj0VujRryAO9jRAAHTLhHAoF8836.png120x120.jpg","//127.0.0.1:9000/img/Cgbj0VujRsOANxDcAActMkyOOgg093.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0FujRryAHyYlAAFfDBvQEZQ725.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0FujRr2ADXdRAAU4Xd3yqgA872.png680x680.jpg,//127.0.0.1:9000/img/Cgbj0VujRryAO9jRAAHTLhHAoF8836.png680x680.jpg","极光蓝",2);
 
 #商品详情，花呗分期
@@ -284,25 +284,25 @@ CREATE TABLE pro_det_huabei(
     hfid INT,
     foreign key (hfid) references product_details(pid)
 );
-INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥466.00×3期","免费手续",1,1);
-INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥233.00×6期","免费手续",1,1);
-INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥125.23×12期","含手续费 ￥8.73/期",1,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥466.00×3期","免费手续",0,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥233.00×6期","免费手续",0,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥125.23×12期","含手续费 ￥8.73/期",0,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥532.66×3期","免费手续",1,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥266.33×6期","免费手续",1,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥143.14×12期","含手续费 ￥9.98/期",1,1);
 INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥532.66×3期","免费手续",2,1);
 INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥266.33×6期","免费手续",2,1);
 INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥143.14×12期","含手续费 ￥9.98/期",2,1);
-INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥532.66×3期","免费手续",3,1);
-INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥266.33×6期","免费手续",3,1);
-INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥143.14×12期","含手续费 ￥9.98/期",3,1);
 
-INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥766.00×3期","免费手续",1,1);
-INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥383.00×6期","免费手续",1,1);
-INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥205.86×12期","含手续费 ￥14.36/期",1,1);
-INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥866.00×3期","免费手续",2,1);
-INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥433.33×6期","免费手续",2,1);
-INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥232.73.14×12期","含手续费 ￥16.23/期",2,1);
-INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥466.66×3期","免费手续",3,1);
-INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥266.33×6期","免费手续",3,1);
-INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥250.64×12期","含手续费 ￥17.48/期",3,1);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥766.00×3期","免费手续",0,2);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥383.00×6期","免费手续",0,2);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥205.86×12期","含手续费 ￥14.36/期",0,2);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥866.00×3期","免费手续",1,2);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥433.33×6期","免费手续",1,2);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥232.73.14×12期","含手续费 ￥16.23/期",1,2);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥466.66×3期","免费手续",2,2);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥266.33×6期","免费手续",2,2);
+INSERT INTO pro_det_huabei(id,periods,rate,sid,hfid) VALUES (null,"¥250.64×12期","含手续费 ￥17.48/期",2,2);
 
 CREATE TABLE shopcart(
     id INT PRIMARY key not NULL AUTO_INCREMENT,
