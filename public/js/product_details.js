@@ -426,7 +426,13 @@
       //登录提示
       (()=>{
         var inshopcart=document.querySelector("[data-in=shopcart]")
+        //获取登录提示框
         var logTip=document.querySelector("[data-log=tip]")
+        //获取结算提示框
+        var payTip=document.querySelector("[data-pay=tip]")
+        //判断用户是否登录了，再选择提示登录框还是结算框
+        //判断依据，登录了，则服务器的login_router.js里面的session.uid不为空
+        //获取session
         inshopcart.addEventListener("click",function(e){
           e.preventDefault()
           logTip.style.display="block"

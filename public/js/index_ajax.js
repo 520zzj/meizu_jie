@@ -30,7 +30,7 @@
         for(var i=0;i<res.length;i++){
             if(i<2){
                 html+=`<li class="middle_img">
-                <a href="">
+                <a href="http://127.0.0.1:5500/product_details.html?pname=${res[i].pname}">
                     <img class="goods_img" src=${res[i].psrc} alt="">
                     <div class="box_info">
                             <h4 class="goods_name">${res[i].pname}</h4>
@@ -41,7 +41,7 @@
                 </a>`
             }else if(i<8){
                 html+=`<li class="little_img">
-                <a href="">
+                <a href="http://127.0.0.1:5500/product_details.html?pname=${res[i].pname}">
                     <img src=${res[i].psrc} alt="">
                     <div class="box_info">
                             <h4  class="goods_name">${res[i].pname}</h4>
@@ -53,7 +53,7 @@
             </li>`
             }else{
                 html+=`<li class="little_img">
-                <a href="">
+                <a href="http://127.0.0.1:5500/product_details.html?pname=${res[i].pname}">
                     <img src=${res[i].psrc} alt="">
                     <div class="box_info">
                             <h4  class="goods_name">${res[i].pname}</h4>

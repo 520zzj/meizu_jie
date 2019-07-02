@@ -38,7 +38,6 @@ section{
     position: absolute;
     right:100px;
     top:100px;
-    display: none;
 }
 .login-box .main-form .ipt{
     width:300px;
@@ -53,11 +52,13 @@ section{
 }
 /* 验证成功 */
 .login-box .main-form div.tips_success{
-    background:rgba(77, 206, 97, 0.6)
+    background:rgba(77, 206, 97, 0.6);
+    color:#ffffff;
 }
 /* 验证失败 */
 .login-box .main-form div.tips_fail{
-    background: rgba(201, 5, 8, 0.6)
+    background: rgba(201, 5, 8, 0.6);
+    color:#ffffff;
 }
 .login-box .main-form .remen_code_box{
     margin-bottom: 10px;
