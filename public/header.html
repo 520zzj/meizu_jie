@@ -181,19 +181,19 @@
                     <li :class="{bgc:i==now}" v-for="(elem,i) in tips">{{elem.pname}}</li>
                 </ul>
                 </li>
-                <li class="user_icon" data-user="menu"><a href=""><img src="img/user.png" alt=""></a>
-                <ul class="arrow hidden">
-                    <li><a href="http://127.0.0.1:5500/log_reg.html?action=log">立即登录</a></li>
+                <li class="user_icon" data-user="menu"><a href=""><img src="img/user.png" alt="" data-toggle="userImg"></a>
+                <ul class="arrow hidden"  data-toggle="userCenter">
+                    <!-- <li><a href="http://127.0.0.1:5500/log_reg.html?action=log">立即登录</a></li>
                     <li><a href="http://127.0.0.1:5500/log_reg.html?action=reg">立即注册</a></li>
                     <li><a href="">我的订单</a></li>
-                    <li><a href="">M码通道</a></li>
+                    <li><a href="">M码通道</a></li> -->
                 </ul>
-                <ul class="hidden arrow">   
+                <!-- <ul class="hidden arrow">   
                         <li><a href="">个人中心</a></li>
                         <li><a href="">我的订单</a></li>
                         <li><a href="">M码通道</a></li>
                         <li><a href="">退出登录</a></li>
-                    </ul>
+                    </ul> -->
                 </li>
                 <li class="cart_icon" data-cart="tip"><a href="http://127.0.0.1:5500/shopcart.html"><img src="img/cart.png" alt=""></a><span>10</span>
                 <div class="cart_icon_tip">

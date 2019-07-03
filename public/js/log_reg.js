@@ -44,7 +44,7 @@
             <div class="ipt_tip"><span></span></div>
             <p><input type="password" data-login="upwd" placeholder="6位数字的密码" class="ipt"></p>
             <div class="ipt_tip"><span></span></div>
-            <p class="remen_code_box"><label for=""><input type="checkbox"><i class="remen_code">记住密码</i></label></p>
+            <p class="remen_code_box"><label for=""><input type="checkbox" data-remenber="code"><i class="remen_code">记住密码</i></label></p>
             <p><input  class="ipt ipt_btn" data-login="btn" value="登录" type="button"></p>
             <div class="regi_code"><a href="">注册</a><a href="">忘记密码？</a></div>
         </form>

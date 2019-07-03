@@ -5,6 +5,7 @@
         url:"header.html"
     }).then(res=>{
         document.getElementById("header-main").innerHTML=res;
+     
         Promise.all( [
             ajax({
                 method:"get",
@@ -44,8 +45,50 @@
             })();
         });
        
-    
+    //登录状态的处理
+        (function(){
+               //判断登录状态，如果sessionstorage.getItem("login")="true",为登录状态，否则为未登录状态
+        //登录状态
+        //找出个人中心的dom元素
+        var userCenter=document.querySelector("[data-toggle=userCenter]")
+        var htmluc=""
+        //登录状态和非登录状态拼接不同html片段
+        if(sessionStorage.getItem("login")=="true"){
+            htmluc+=`<li><a href="">个人中心</a></li>
+            <li><a href="">我的订单</a></li>
+            <li><a href="">M码通道</a></li>
+            <li><a href="" data-toggle="logout">退出登录</a></li>`
+        }else{
+            htmluc+=`<li><a href="http://127.0.0.1:5500/log_reg.html?action=log">立即登录</a></li>
+            <li><a href="http://127.0.0.1:5500/log_reg.html?action=reg">立即注册</a></li>
+            <li><a href="">我的订单</a></li>
+            <li><a href="">M码通道</a></li>`
+        }
+        userCenter.innerHTML=htmluc;
+        //如果是登录状态，头像换登录的头像，否则是未登录的头像
+        //找到头像处的元素
+        var  userImg=document.querySelector("[data-toggle=userImg]")
+        if(sessionStorage.getItem("login")=="true"){
+            userImg.src="http://127.0.0.1:9000/img/up70924371-7.jpg"
+        }else{
+            userImg.src="http://127.9.0.1:9000/img/user.png"
+        }
+        //如果是登录状态，给退出按钮绑定事件
+        //找到退出按钮dom元素
+        var logout=document.querySelector("[data-toggle=logout]")
+        //当存在按钮时才绑定事件
+        if(logout){
+            //绑定退出的事件
+            logout.addEventListener("click",function(e){
+                e.preventDefault();
+                //把sessionstorage里面表示登录状态的item去掉
+                sessionStorage.removeItem("login")
+                //重新刷新页面
+                window.history.go(0)
+            })
+        }
         
+        })();
     (()=>{
          //导航二级菜单图片列表的显示和隐藏
     var lis=document.querySelectorAll("[data-menu=dropdown]")

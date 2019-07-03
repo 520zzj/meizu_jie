@@ -71,7 +71,7 @@ $(function(){
         var errbox=document.querySelector("[data-login=errbox]")
         login_btn.addEventListener("click",login)
         //点击登录按钮的函数
-        function login(){
+        function login(e){
             //当输入框都不为空的时候才允许发送ajax
             if(un&&up){
                 ajax({
@@ -84,6 +84,19 @@ $(function(){
                     //如果res.code==1,则跳转页面
                     //否则提示用户或密码错误
                     if(res.code==1){
+                        //勾选记住密码
+                        //登录成功，记住账号密码，下次打开登录页面时，账号密码已填好
+                        //获取账号密码框，记住密码多选按钮所在元素
+                        var remcode=document.querySelector("[data-remenber=code]")
+                        var uname=document.querySelector("[data-login=uname]")
+                        var upwd=document.querySelector("[data-login=upwd]")
+                        //如果勾选了记住密码,把账号密码存储在本地
+                        if(remcode.checked){
+                            localStorage.setItem("uname",uname.value)
+                            localStorage.setItem("upwd",upwd.value)
+                        }
+                        //只要登录了，就得记住登录的状态，用sessionstorage
+                        sessionStorage.setItem("login",true)
                         //登录成功返回上一页
                        window.history.go(-1)
                     }else{

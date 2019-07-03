@@ -76,6 +76,23 @@
      for(let item of meal){
         htmlmeal+=`<a href="" class="item" data-click="item" data-toggle="meal">${item}</a>`
      }
+     //点击加入购物车处的登录和结算提示
+     var htmlLogTip=""
+     //获取sessionstorage值判断登录状态，选择拼接HTML片段
+     //如果session.getItem("login")=="true",则为登录状态，反之不是
+     if(sessionStorage.getItem("login")=="true"){
+        htmlLogTip=`<div class="log_tip_box">
+        <div class="already">已加入购物车</div>
+        <a href="" class="golog">去购物车结算 &gt;</a>
+        </div>`
+     }else{
+       htmlLogTip=`<div class="log_tip_box">
+       <div class="already">已加入购物车</div>
+       <p class="logafter">登录后可显示你加入的商品哦~</p>
+       <a href="" class="golog">去登录 &gt;</a>
+      </div>`
+     }
+     //主HTML模板
       var htmldetbox=`<div class="details_box_left">
       <div class="big_img_box"><img class="big_img" src="" alt=""></div>
       <ul class="mid_img_box">
@@ -184,11 +201,7 @@
       <a href="" class="instanbuy">立即购买</a><a href="" class="inshopcart" data-in="shopcart">加入购物车</a>
   </div>
   <div class="log_tip" data-log="tip">
-      <div class="log_tip_box">
-              <div class="already">已加入购物车</div>
-              <p class="logafter">登录后可显示你加入的商品哦~</p>
-              <a href="" class="golog">去登录 &gt;</a>
-      </div>    
+     ${htmlLogTip}  
   </div>
 </div>`
       var detbox=document.querySelector("[data-details=box]")
@@ -423,22 +436,20 @@
               }
           })
       })();
-      //登录提示
+      //点击加入购物车
       (()=>{
         var inshopcart=document.querySelector("[data-in=shopcart]")
         //获取登录提示框
         var logTip=document.querySelector("[data-log=tip]")
-        //获取结算提示框
-        var payTip=document.querySelector("[data-pay=tip]")
-        //判断用户是否登录了，再选择提示登录框还是结算框
-        //判断依据，登录了，则服务器的login_router.js里面的session.uid不为空
-        //获取session
         inshopcart.addEventListener("click",function(e){
           e.preventDefault()
+           //控制登录和结算提示框的显示和隐藏
           logTip.style.display="block"
           var t=setTimeout(()=>{
             logTip.style.display="none"
           },2000)
+          //把商品的信息添加到服务器的数据库
+          
         })
       })();
     })

@@ -15,8 +15,8 @@ var app=express();
 var server=app.listen(9000);
 app.use(session({//配置session
     secret:"128字符串",
-    resave:false,
-    saveUninitialized:true
+    resave:true,
+    saveUninitialized:false
 }))
 //启用cors跨域，只允许   的请求访问
 //前端附带身份凭证，withCredentials=true，服务器不能用origin的值不能为*

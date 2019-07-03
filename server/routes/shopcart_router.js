@@ -10,6 +10,7 @@ router.get("/",(req,res)=>{
     })
 })
 router.get("/delete",(req,res)=>{
+    console.log(req.session.uid+"购物车页面的session值")
     var id=req.query.id;
     var sql=`delete from shopcart where id=?`
     pool.query(sql,[id],(err,result)=>{
