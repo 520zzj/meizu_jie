@@ -171,13 +171,13 @@ INSERT INTO product_list(pid,pname,pdesc,pprice,psign) VALUES (NULL,"魅族 Micr
 
 
 CREATE TABLE user(
-    id int PRIMARY key not NULL AUTO_INCREMENT,
+    uid int PRIMARY key not NULL AUTO_INCREMENT,
     uname VARCHAR(10),
     upwd VARCHAR(32),
     phone VARCHAR(11),
     email VARCHAR(30)
 );
-INSERT INTO user(id,uname,upwd,phone,email) VALUES (null,"lisi",md5("123456"),null,null);
+INSERT INTO user(uid,uname,upwd,phone,email) VALUES (null,"lisi",md5("123456"),null,null);
 
 CREATE TABLE icon_color_src(
     iid INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -308,12 +308,13 @@ CREATE TABLE shopcart(
     id INT PRIMARY key not NULL AUTO_INCREMENT,
     img_src VARCHAR(100),
     pname VARCHAR(20),
-    props VARCHAR(50),
     unitprice DECIMAL(6,2),
-    amount INT,
-    subtotal DECIMAL(10,2),
+    net VARCHAR(20),
+    color VARCHAR(10),
+    intsto VARCHAR(20),
+    mount INT,
     fscid INT,
-    foreign KEY (fscid) references user(id)
+    foreign KEY (fscid) references user(uid)
 );
 #INSERT INTO shopcart(id,img_src,pname,props,unitprice,amount,subtotal,) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@120x120.png","魅族 Note9","全网通公开版 幻黑 4+64GB",1598.00,3,1598.00);
 #INSERT INTO shopcart(id,img_src,pname,props,unitprice,amount,subtotal) VALUES (null,"//127.0.0.1:9000/img/Cgbj0Vx_ZK6AaEObAAa1DJqn7us376.png@120x120.png","魅族 16th","全网通公开版 幻黑 4+64GB",1598.00,1,1598.00);

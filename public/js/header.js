@@ -65,6 +65,9 @@
             <li><a href="">M码通道</a></li>`
         }
         userCenter.innerHTML=htmluc;
+        // //获取购物车图标的数字所在元素
+        // var span=document.querySelector("[data-product=number]")
+        // console.log(span)
         //如果是登录状态，头像换登录的头像，否则是未登录的头像
         //找到头像处的元素
         var  userImg=document.querySelector("[data-toggle=userImg]")

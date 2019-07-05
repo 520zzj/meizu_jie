@@ -26,6 +26,11 @@ $(function(){
     var login_btn=document.querySelector("[data-login=btn]")
     var login_uname=document.querySelector("[data-login=uname]")
     var login_upwd=document.querySelector("[data-login=upwd]")
+    //如果本地存储localstorage里面有账号密码，就填入输入框
+    if(localStorage.getItem("uname")&&localStorage.getItem("upwd")){
+        login_uname.value=localStorage.getItem("uname")
+        login_upwd.value=localStorage.getItem("upwd")
+    }
     //声明用于接收验证输入框函数的返回值的变量,默认为false
     var un=false,up=false
    // 封装输入框的验证，并返回一个bool值,为验证结果
@@ -97,6 +102,8 @@ $(function(){
                         }
                         //只要登录了，就得记住登录的状态，用sessionstorage
                         sessionStorage.setItem("login",true)
+                        //把id保存在sessionstorage里面
+                        sessionStorage.setItem("uid",res.uid)
                         //登录成功返回上一页
                        window.history.go(-1)
                     }else{

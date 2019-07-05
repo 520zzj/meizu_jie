@@ -95,7 +95,7 @@
      //主HTML模板
       var htmldetbox=`<div class="details_box_left">
       <div class="big_img_box"><img class="big_img" src="" alt=""></div>
-      <ul class="mid_img_box">
+      <ul class="mid_img_box" data-toggle="mid_imgsrc">
          ${htmlmidimg}
       </ul>
       <div class="details_action_box">
@@ -194,7 +194,7 @@
   <div class="model"> 
           <span class="model_left">数量</span>
           <div class="mount">
-              <span class="disabled" data-btn="less">-</span><input type="text" value="1"><span data-btn="add">+</span>
+              <span class="disabled" data-btn="less">-</span><input type="text" value="1" data-toggle="buyMount"><span data-btn="add">+</span>
           </div>
   </div>
   <div class="buy_box">
@@ -438,6 +438,7 @@
       })();
       //点击加入购物车
       (()=>{
+        //获取加入购物车元素
         var inshopcart=document.querySelector("[data-in=shopcart]")
         //获取登录提示框
         var logTip=document.querySelector("[data-log=tip]")
@@ -448,8 +449,47 @@
           var t=setTimeout(()=>{
             logTip.style.display="none"
           },2000)
-          //把商品的信息添加到服务器的数据库
-          
+          //获取要存储的商品信息,商品名称，商品单价，内存，数量，图片地址，网络类型，颜色，用户的id
+          var img_src=document.querySelector("[data-toggle=mid_imgsrc]").children[0].children[0].children[0].src
+          var pname=res[0].pname
+          var unitprice=res[0].price
+          var selected=document.querySelectorAll("[data-click=item].selected")
+          var net=selected[0].innerHTML
+          var color=selected[1].children[1].innerHTML
+          var intsto=selected[2].innerHTML
+         
+          var mount=document.querySelector("[data-toggle=buyMount]").value
+         console.log(img_src,pname,unitprice,net,color,mount)
+          //未登录的话，把商品的信息保存在sessionstorage，购物车页面打开时就获取sessionstorage里面的商品信息
+          if(sessionStorage.getItem("login")!=="true"){
+                //如果session里面没有cart表明第一次创建存储购物车的session空间
+              if( !sessionStorage.getItem("cart")){
+                var arr=[]
+              }else{
+                //否则，读取session里面的键cart,往cart对应的值加另一个商品的信息
+                  var arr=sessionStorage.getItem("cart")
+                  //读出来后转换成js对象
+                  arr=JSON.parse(arr)
+              }
+              //获取当前商品的信息
+              var cart={img_src,pname,unitprice,net,color,intsto,mount}
+              //加入到js对象里面
+              arr.push(cart)
+              //然后再次转换成json字符串保存到session里面
+              arr=JSON.stringify(arr)
+              sessionStorage.setItem("cart",arr)
+          }else{
+          //已登录的话，把商品的信息添加到服务器的数据库，购物车页面打开时，就发送ajax从数据库来获取商品信息
+          var uid=sessionStorage.getItem("uid")
+            ajax({
+              method:"post",
+              url:"http://127.0.0.1:9000/shopcart/add",
+              dataType:"json",
+              data:`img_src=${img_src}&pname=${pname}&unitprice=${unitprice}&net=${net}&color=${color}&intsto=${intsto}&mount=${mount}&uid=${uid}`
+            }).then(res=>{
+                console.log(res)
+            })
+          }
         })
       })();
     })
