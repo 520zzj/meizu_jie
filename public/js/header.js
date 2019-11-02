@@ -53,7 +53,7 @@
         var userCenter=document.querySelector("[data-toggle=userCenter]")
         var htmluc=""
         //登录状态和非登录状态拼接不同html片段
-        if(sessionStorage.getItem("login")=="true"){
+        if(sessionStorage.getItem("login")){
             htmluc+=`<li><a href="">个人中心</a></li>
             <li><a href="">我的订单</a></li>
             <li><a href="">M码通道</a></li>
@@ -73,14 +73,37 @@
         var  userImg=document.querySelector("[data-toggle=userImg]")
         if(sessionStorage.getItem("login")=="true"){
             userImg.src="http://127.0.0.1:9000/img/up70924371-7.jpg"
-        }else{
-            userImg.src="http://127.9.0.1:9000/img/user.png"
-        }
+            // 更新购物车的图标上的购买数量
+            // 获取sessionStorage中的购买数量和数据库中用户的购买数量
+            var uid=sessionStorage.getItem("uid")//用户id
+            ajax({
+                method:'get',
+                url:'http://127.0.0.1:9000/head/buyNum',
+                dataType:'json',
+                data:`uid=${uid}`
+            }).then(res=>{
+                var span=document.querySelector("[data-product=number]")
+                var dbNum=res.data//数据库中的购买数量
+                 var cart=sessionStorage.getItem('cart')  // 获取本地数量
+                if(cart!=null){//本地有购买数量
+                    cart=JSON.parse(cart)//转换成js对象
+                    var localNum=0
+                    for(var v of cart){
+                        localNum+=parseInt(v.mount)
+                    }
+                    span.innerHTML=dbNum+localNum// 设置购物车图标购买数量
+                }else{
+                    span.innerHTML=dbNum
+                }
+              
+                
+            })
+           
+           
         //如果是登录状态，给退出按钮绑定事件
         //找到退出按钮dom元素
-        var logout=document.querySelector("[data-toggle=logout]")
         //当存在按钮时才绑定事件
-        if(logout){
+        var logout=document.querySelector("[data-toggle=logout]")
             //绑定退出的事件
             logout.addEventListener("click",function(e){
                 e.preventDefault();
@@ -89,7 +112,26 @@
                 //重新刷新页面
                 window.history.go(0)
             })
+
+        }else{
+            userImg.src="http://127.9.0.1:9000/img/user.png"
+            //更新购物车图片上的购买数量
+            var cart=sessionStorage.getItem('cart')
+            var span=document.querySelector("[data-product=number]")
+            if(cart!=null){//本地存储有商品
+                var num=0
+                cart=JSON.parse(cart)
+                for(var v of cart){
+                    num+=parseInt(v.mount)
+                }
+                span.innerHTML=num
+            }
+           
         }
+       
+        // if(logout){
+            
+        // }
         
         })();
     (()=>{
@@ -122,13 +164,16 @@
 
  (()=>{
     //购物车图标提示
-    var liCart=document.querySelector("[data-cart=tip]")
-    liCart.addEventListener("mouseover",function(){
-        this.children[2].style.display="block";
-    })
-    liCart.addEventListener("mouseout",function(){
-        this.children[2].style.display="none";      
-    })
+    if(!sessionStorage.getItem('login')){
+        var liCart=document.querySelector("[data-cart=tip]")
+        liCart.addEventListener("mouseover",function(){
+            this.children[2].style.display="block";
+        })
+        liCart.addEventListener("mouseout",function(){
+            this.children[2].style.display="none";      
+        })
+    }
+   
  })();
 
  (()=>{

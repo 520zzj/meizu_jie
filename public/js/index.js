@@ -64,7 +64,7 @@ $(window).load(function(){//css加载完再执行
         divAd.style.bottom="-225px"
         clearTimeout(timer1)//清空定时器从新计时
         timer1=null
-        timer1=setTimeout(ad,10000)
+        timer1=setTimeout(ad,50000)
     })
 });
 //侧边导航栏

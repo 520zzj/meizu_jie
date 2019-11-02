@@ -905,7 +905,7 @@
                 change(choose);
             });
         }
-    }else{
+    }else{  
         //还没登录
         orderbox.innerHTML=`<li><a href="" class="olr_link">我的订单</a></li>
         <li><a href="http://127.0.0.1:5500/log_reg.html?action=log" class="olr_link">登录</a></li>
@@ -918,6 +918,7 @@
             var cart=sessionStorage.getItem("cart")
             //转换成js对象
             cart=JSON.parse(cart)
+            // console.log(cart)
             function loadhtml2(res){
                 var html=""
                 for(var i=0;i<res.length;i++){
@@ -1363,12 +1364,6 @@
             change(choose);
         }
     }
-    
- 
-   
-    
-    
- 
 
 })();
  

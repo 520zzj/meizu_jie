@@ -8,4 +8,20 @@ router.get("/phone",(req,res)=>{
         res.send(result)
     })
 })
+//获取某用户的购物车预购买数量
+router.get('/buyNum',(req,res)=>{
+    var fscid=req.query.uid//获取用户id
+    var sql=`select mount from shopcart where fscid=?`
+    pool.query(sql,[fscid],(err,result)=>{
+        if(err) throw err;
+        else{
+            var num=0
+            for(var v of result){
+                num+=parseInt(v.mount)
+            }
+            res.send({code:1,data:num})
+        }
+    })
+})
+
 module.exports=router

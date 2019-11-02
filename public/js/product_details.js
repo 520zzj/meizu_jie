@@ -475,12 +475,23 @@
               var cart={img_src,pname,unitprice,net,color,intsto,mount}
               //加入到js对象里面
               arr.push(cart)
+              console.log(arr)
+                //   更新购物车图标上的预购数量
+                var span=document.querySelector("[data-product=number]")
+                var num=0
+                for(var v of arr){
+                  num+=parseInt(v.mount)
+                }
+                console.log(num)
+                span.innerHTML=num;
               //然后再次转换成json字符串保存到session里面
               arr=JSON.stringify(arr)
               sessionStorage.setItem("cart",arr)
+               
+          
           }else{
           //已登录的话，把商品的信息添加到服务器的数据库，购物车页面打开时，就发送ajax从数据库来获取商品信息
-          var uid=sessionStorage.getItem("uid")
+          var uid=sessionStorage.getItem("uid")                                                                                                                                                                                      
             ajax({
               method:"post",
               url:"http://127.0.0.1:9000/shopcart/add",
